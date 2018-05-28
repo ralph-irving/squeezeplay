@@ -3990,6 +3990,7 @@ function skin(self, s)
                                 padding = { 0, 0, 0, 0 },
                                 bgImg = _loadImageTile(self, imgpath .. "UNOFFICIAL/VUMeter/Analog_VU.png"), 
                                 dialColor = { 0xff, 0x46, 0x00, 0xff },
+				overColor = { 0xff, 0x46, 0x00, 0xA0 },
                                 }
 		},
 	})
