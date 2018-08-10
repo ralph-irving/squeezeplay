@@ -57,9 +57,7 @@ end
 
 function draw(self, surface)
 	        
-        self.bgImg:blit(surface, self:getBounds())
-        
-        local sampleAcc = decode:vumeter(samples)       
+        sampleAcc = decode:vumeter(samples)       
 	
         _drawMeter(self, surface, sampleAcc, 1)
 	_drawMeter(self, surface, sampleAcc, 2)
