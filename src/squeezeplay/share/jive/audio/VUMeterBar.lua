@@ -43,8 +43,6 @@ end
 function _skin(self)
 	Icon._skin(self)
 	            
-        self.bgImg = self:styleImage("bgImg")
-        
         self.offColor = self:styleColor("offColor", { 0x50, 0x50, 0x50, 0x80 })
                
         self.lowColor = self:styleColor("lowColor", { 0xff, 0xff, 0xff, 0xff })
