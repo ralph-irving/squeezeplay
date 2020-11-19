@@ -210,6 +210,15 @@ extern bool_t decode_first_buffer;
 
 
 /* The fifo used to store decoded samples */
+/* '10 * 2 * 44100 * sizeof(sample_t)' equates to:
+	10 seconds of a 44,100 Hz stream,
+	2.29 seconds of a 192,000 Hz stream,
+	1.14 seconds of a 384,000 Hz stream.
+    SqueezePlay will stall if the requested output threshold approaches
+    these limits. For example, LMS sets an output threshold of 2 seconds
+    for a 'high sample rate ( >= 88200 )' flac stream.
+    Refer 'decode_alsa_backend.c' and 'decode_portaudio.c' for mitigation.
+*/
 #define DECODE_FIFO_SIZE (10 * 2 * 44100 * sizeof(sample_t)) 
 extern u8_t *decode_fifo_buf;
 

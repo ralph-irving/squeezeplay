@@ -291,6 +291,8 @@ static void playback_callback(struct decode_alsa *state,
 
 	/* Should we start the audio now based on having enough decoded data?
 	   - override output_thresh for 176/192k and wait for 1 sec of data before starting */
+	/* Supplementary note: this 1 sec  override is required for 352/384k to prevent stalls.
+	   Refer note against 'DECODE_FIFO_SIZE' in 'decode_priv.h'. */
 	if (decode_audio->state & DECODE_STATE_AUTOSTART
 			&& decode_frames > (output_frames * (3 + state->period_count))
 			&& decode_frames > (state->pcm_sample_rate <= 96000 ? (decode_audio->output_threshold * state->pcm_sample_rate / 10) :

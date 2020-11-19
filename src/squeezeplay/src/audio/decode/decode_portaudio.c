@@ -128,9 +128,20 @@ static int callback(void *inputBuffer,
 	bytes_used = fifo_bytes_used(&decode_audio->fifo);
 
 	/* Should we start the audio now based on having enough decoded data? */
+	/* We may need to override the output_threshold if we are playing a high
+	   sample rate stream, to prevent stalls. Refer note against 'DECODE_FIFO_SIZE'
+	   in 'decode_priv.h'.
+	   We adopt a 1 sec override for streams >96k (176/192k and 352/384k in practice).
+	   This is identical to the approach already adopted by 'decode_alsa_backend.c'.
+	*/
+
 	if (decode_audio->state & DECODE_STATE_AUTOSTART
 			&& bytes_used >=  len
-			&& bytes_used >= SAMPLES_TO_BYTES((u32_t)((decode_audio->output_threshold * stream_sample_rate) / 10))
+			&& bytes_used >= (
+			    stream_sample_rate <= 96000 ?
+				SAMPLES_TO_BYTES((u32_t)((decode_audio->output_threshold * stream_sample_rate) / 10)) :
+				SAMPLES_TO_BYTES((u32_t) stream_sample_rate)
+			   )
 		)
 	{
 		u32_t now = jive_jiffies();
