@@ -1055,7 +1055,7 @@ int jiveL_event(lua_State *L) {
 
 
 int jiveL_get_ticks(lua_State *L) {
-	lua_pushinteger(L, jive_jiffies());
+	lua_pushnumber(L, (double)jive_jiffies());
 	return 1;
 }
 
