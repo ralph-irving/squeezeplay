@@ -31,6 +31,8 @@ local Timer            = require("jive.ui.Timer")
 local Player           = require("jive.slim.Player")
 
 local VUMeter          = require("jive.audio.VUMeter")
+local VUMeterNew       = require("jive.audio.VUMeterNew")
+local VUMeterBar       = require("jive.audio.VUMeterBar")
 local SpectrumMeter    = require("jive.audio.SpectrumMeter")
 
 local debug            = require("jive.utils.debug")
@@ -1028,9 +1030,22 @@ function _updatePosition(self)
 		return
 	end
 
-	local strElapsed = ""
-	local strRemain = ""
-	local pos = 0
+        local strElapsed = ""
+        local strRemain = ""
+        local str_Elapsed = ""
+        local str_Remain = ""
+        local pos = 0
+        local skinName   = jiveMain:getSelectedSkin()
+                     
+        --if skinName == 'You_Skin_Name_Here' then -- if you want your skin to use mm:ss to hh:mm instead of "large" to "small" just uncomment and add your skin name
+	--	skinName = 'RPi800x480Skin'
+	--end
+        
+        if skinName == 'RPi800x480Skin' then
+		hhmm = true
+        else
+                hhmm = false
+        end 
 
 	-- Bug 15814: do not update position if track isn't actually playing
 	if self.player:isWaitingToPlay() then
@@ -1039,49 +1054,82 @@ function _updatePosition(self)
 	end
 	local elapsed, duration = self.player:getTrackElapsed()
 
-	if elapsed then
-		if duration and duration > 0 and elapsed > duration then
-			strElapsed = _secondsToString(duration)
-		else
-			strElapsed = _secondsToString(elapsed)
-		end
-	end
+        if elapsed then
+                if duration and duration > 0 and elapsed > duration then
+                        strElapsed = _secondsToString(duration)
+                        str_Elapsed_length = string.len (strElapsed)
+                        if str_Elapsed_length > 5 and hhmm then
+                                str_Elapsed = string.sub (strElapsed, 1, str_Elapsed_length - 3) 
+                        else
+                                str_Elapsed = strElapsed 
+                        end
+                else
+                        strElapsed = _secondsToString(elapsed)
+                        str_Elapsed_length = string.len (strElapsed)
+                        if str_Elapsed_length > 5 and hhmm then
+                                str_Elapsed = string.sub (strElapsed, 1, str_Elapsed_length - 3) 
+                        else
+                                str_Elapsed = strElapsed 
+                        end
+                end
+        end
 
-	if elapsed and elapsed >= 0 and duration and duration > 0 then
-		if elapsed > duration then
-			strRemain = "-" .. _secondsToString(0)
-		else
-			strRemain = "-" .. _secondsToString(duration - elapsed)
-		end
-	end
+        if elapsed and elapsed >= 0 and duration and duration > 0 then
+                if elapsed > duration then
+                        strRemain = "-" .. _secondsToString(0)
+                        str_Remain_length = string.len (strRemain)
+                        if str_Remain_length > 6 and hhmm then
+                                str_Remain = string.sub (strRemain, 1, str_Remain_length - 3) 
+                        else
+                                str_Remain = strRemain 
+                        end
+                else
+                        strRemain = "-" .. _secondsToString(duration - elapsed)
+                        str_Remain_length = string.len (strRemain)
+                        if str_Remain_length > 6 and hhmm then
+                                str_Remain = string.sub (strRemain, 1, str_Remain_length - 3) 
+                        else
+                                str_Remain = strRemain 
+                        end
+                end
+        end
 
-	if self.progressGroup then
-		local elapsedWidget = self.progressGroup:getWidget('elapsed')
-		local elapsedLen    = string.len(strElapsed)
-		local elapsedStyle  = elapsedWidget:getStyle()
-		if elapsedLen > 5 and elapsedStyle ~= 'elapsedSmall' then
-			elapsedWidget:setStyle('elapsedSmall')
-		elseif elapsedLen <= 5 and elapsedStyle ~= 'elapsed' then
-			elapsedWidget:setStyle('elapsed')
-		end
-
-		self.progressGroup:setWidgetValue("elapsed", strElapsed)
-
-		if showProgressBar then
-			local remainWidget = self.progressGroup:getWidget('remain')
-			local remainLen    = string.len(strRemain)
-			local remainStyle  = remainWidget:getStyle()
-			if remainLen > 5 and remainStyle ~= 'remainSmall' then
-				remainWidget:setStyle('remainSmall')
-			elseif remainLen <= 5 and remainStyle ~= 'remain' then
-				remainWidget:setStyle('remain')
+        if self.progressGroup then
+                    local elapsedWidget = self.progressGroup:getWidget('elapsed')
+                    local elapsedLen    = string.len(strElapsed)
+                    local elapsedStyle  = elapsedWidget:getStyle()
+            
+                    if hhmm then
+                            elapsedWidget:setStyle('elapsed')
+                    else
+                            if elapsedLen > 5 and elapsedStyle ~= 'elapsedSmall' then
+                                    elapsedWidget:setStyle('elapsedSmall')
+                            elseif elapsedLen <= 5 and elapsedStyle ~= 'elapsed' then
+                                    elapsedWidget:setStyle('elapsed')
+                            end
+                    end
+                    self.progressGroup:setWidgetValue("elapsed", str_Elapsed)
+                    
+                if showProgressBar then
+                        local remainWidget = self.progressGroup:getWidget('remain')
+                        local remainLen    = string.len(strRemain)
+                        local remainStyle  = remainWidget:getStyle()
+                        
+                        if hhmm then
+                                    remainWidget:setStyle('remain')
+                        else
+                                if remainLen > 5 and remainStyle ~= 'remainSmall' then
+                                        remainWidget:setStyle('remainSmall')
+                                elseif remainLen <= 5 and remainStyle ~= 'remain' then
+                                        remainWidget:setStyle('remain')
+                                end
 			end
-
-			self.progressGroup:setWidgetValue("remain", strRemain)
-			self.progressSlider:setValue(elapsed)
-		end
-	end
+                        self.progressGroup:setWidgetValue("remain", str_Remain)
+                        self.progressSlider:setValue(elapsed)
+                end
+        end
 end
+
 
 function _updateVolume(self)
 	if not self.player then
@@ -1563,7 +1611,33 @@ function _createUI(self)
 			end
 		)
 	end
-
+        
+        -- Visualizer: New Analog VU Meter - only load if needed
+	if self.windowStyle == "nowplaying_vuanalog_new_text" then
+		self.visuGroup = Button(
+			Group('npvisu', {
+				visu = VUMeterNew("vumeter_analog"),
+			}),
+			function()
+				Framework:pushAction("go_now_playing")
+				return EVENT_CONSUME
+			end
+		)
+	end
+        
+        -- Visualizer: New Analog BAR VU Meter - only load if needed
+	if self.windowStyle == "nowplaying_vubar_new_text" then
+		self.visuGroup = Button(
+			Group('npvisu', {
+				visu = VUMeterBar("vumeter_analog"),
+			}),
+			function()
+				Framework:pushAction("go_now_playing")
+				return EVENT_CONSUME
+			end
+		)
+	end
+        
 	local playIcon = Button(Icon('play'),
 				function() 
 					Framework:pushAction("pause")
@@ -1720,7 +1794,7 @@ function _createUI(self)
 	window:addWidget(self.artistalbumTitle)
 	window:addWidget(self.artworkGroup)
 	-- Visualizer: Only load if needed
-	if (self.windowStyle == "nowplaying_spectrum_text") or (self.windowStyle == "nowplaying_vuanalog_text") then
+	if (self.windowStyle == "nowplaying_spectrum_text") or (self.windowStyle == "nowplaying_vuanalog_text") or  (self.windowStyle == "nowplaying_vubar_new_text") or (self.windowStyle == "nowplaying_vuanalog_new_text") then
 		window:addWidget(self.visuGroup)
 	end
 
