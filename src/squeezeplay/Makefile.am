@@ -113,6 +113,8 @@ SqueezePlay_bundle: SqueezePlay
 	echo "	<string>$(VERSION_TEXT)</string>" >> $(PLIST_FILE)
 	echo "	<key>CFBundleGetInfoString</key>" >> $(PLIST_FILE)
 	echo "	<string>$(APP_NAME) $(VERSION_TEXT), Copyright 2008 Logitech</string>" >> $(PLIST_FILE)
+	echo "  <key>NSAppleEventsUsageDescription</key>" >> $(PLIST_FILE)
+	echo "  <string>$(APP_NAME) wants to pause and resume external media players.</string>" >> $(PLIST_FILE)
 	echo "</dict>" >> $(PLIST_FILE)
 	echo "</plist>" >> $(PLIST_FILE)
 	chmod 644 $(BUNDLE_CONTENTS)/Resources/*

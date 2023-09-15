@@ -213,7 +213,7 @@ void     QZ_InitOSKeymap (_THIS) {
      */
 
 #if (MAC_OS_X_VERSION_MAX_ALLOWED >= 1050)
-    if (TISCopyCurrentKeyboardLayoutInputSource != NULL) {
+    if (TISCopyCurrentKeyboardLayoutInputSource() != NULL) {
         TISInputSourceRef src = TISCopyCurrentKeyboardLayoutInputSource();
         if (src != NULL) {
             CFDataRef data = (CFDataRef)
@@ -336,6 +336,11 @@ static void QZ_DoKey (_THIS, int state, NSEvent *event) {
     unsigned int i, numChars;
     SDL_keysym key;
     
+    /* Pass key events to the menu to handle cmd-keys */
+    if ([[NSApp menu] performKeyEquivalent:event]) {
+        return;
+    }
+
     /* 
         A key event can contain multiple characters,
         or no characters at all. In most cases, it

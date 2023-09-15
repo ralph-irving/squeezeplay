@@ -13,7 +13,7 @@
 #include <net/if_dl.h>
 #include <ifaddrs.h>
 #include <net/if_types.h>
-
+#include <SDL_keysym.h>
 
 #define PREF_DIR "/Library/Preferences/SqueezePlay"
 
@@ -72,6 +72,33 @@ char *platform_get_mac_address() {
     return macaddr;
 }
 
+static int macosx_filter_pump(const SDL_Event *event) {
+    //handle multimedia button events
+    if (event->type == SDL_KEYDOWN)
+    {
+        switch (event->key.keysym.sym) {
+            case SDLK_AudioPlay:
+                jive_send_key_event(JIVE_EVENT_KEY_PRESS, JIVE_KEY_PAUSE, jive_jiffies());
+                return 0;
+            case SDLK_AudioNext:
+                jive_send_key_event(JIVE_EVENT_KEY_PRESS, JIVE_KEY_FWD, jive_jiffies());
+                return 0;
+            case SDLK_AudioPrev:
+                jive_send_key_event(JIVE_EVENT_KEY_PRESS, JIVE_KEY_REW, jive_jiffies());
+                return 0;
+            case SDLK_Forward:
+                jive_send_char_press_event('B');
+                return 0;
+            case SDLK_Back:
+                jive_send_char_press_event('Z');
+                return 0;
+            default:
+                break;
+        }
+    }
+    return 1;
+}
+
 char *platform_get_arch() {
     // FIXME
     return "unknown";
@@ -86,6 +113,7 @@ int watchdog_keepalive(int watchdog_id, int count) {
 }
 
 void platform_init(lua_State *L) {
+	jive_sdlfilter_pump = macosx_filter_pump;
 }
 
 #endif

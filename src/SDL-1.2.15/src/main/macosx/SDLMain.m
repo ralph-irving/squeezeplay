@@ -9,6 +9,7 @@
 #include "SDLMain.h"
 #include <sys/param.h> /* for MAXPATHLEN */
 #include <unistd.h>
+#import "SPMediaKeyTap.h"
 
 /* For some reaon, Apple removed setAppleMenu from the headers in 10.4,
  but the method still is there and works. To avoid warnings, we declare
@@ -48,10 +49,11 @@ static NSString *getApplicationName(void)
 @end
 #endif
 
-@interface NSApplication (SDLApplication)
+@interface SDLApplication : NSApplication {
+}
 @end
 
-@implementation NSApplication (SDLApplication)
+@implementation SDLApplication
 /* Invoked from the Quit menu item */
 - (void)terminate:(id)sender
 {
@@ -64,6 +66,8 @@ static NSString *getApplicationName(void)
 
 /* The main class of the application, the application's delegate */
 @implementation SDLMain
+
+SPMediaKeyTap *_mediaKeyController;
 
 /* Set the working directory to the .app's parent directory */
 - (void) setupWorkingDirectory:(BOOL)shouldChdir
@@ -182,7 +186,7 @@ static void setupWindowMenu(void)
 static void CustomApplicationMain (int argc, char **argv)
 {
     NSAutoreleasePool	*pool = [[NSAutoreleasePool alloc] init];
-    SDLMain				*sdlMain;
+    SDLMain		*sdlMain;
 
     /* Ensure the application object is initialised */
     [[NSApplication sharedApplication] activateIgnoringOtherApps: YES];
@@ -194,7 +198,7 @@ static void CustomApplicationMain (int argc, char **argv)
 
     /* Create SDLMain and make it the app delegate */
     sdlMain = [[SDLMain alloc] init];
-    [NSApp setDelegate:sdlMain];
+    [NSApp setDelegate:(id<NSApplicationDelegate>)sdlMain];
     
     /* Start the main event loop */
     [NSApp run];
@@ -262,6 +266,12 @@ static void CustomApplicationMain (int argc, char **argv)
 
     /* Set the working directory to the .app's parent directory */
     [self setupWorkingDirectory:gFinderLaunch];
+
+    /* intercept multimedia keys */
+    _mediaKeyController = [[SPMediaKeyTap alloc] initWithDelegate:self];
+    if (![_mediaKeyController startWatchingMediaKeys]) {
+        printf("startWatchingMediaKeys returned FALSE, you may need to allow this app in Privacy & Security -> Accessibility\n");
+    }
 
 #if SDL_USE_NIB_FILE
     /* Set the main menu to contain the real app name instead of "SDL App" */
