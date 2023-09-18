@@ -22,7 +22,7 @@
 */
 
 // Copyright (c) 2010 Spotify AB
-// modifiations by Jake Angerman 2023 for SqueezePlay
+// modifications by Jake Angerman 2023 for SqueezePlay
 #import "SPMediaKeyTap.h"
 #include "SDL.h"
 #include "SDLMain.h"
