@@ -18,8 +18,10 @@
 
 #if defined(__APPLE__) && defined(__MACH__)
 #include "pa_mac_core.h"
+#include <CoreAudio/CoreAudio.h>
 static PaMacCoreStreamInfo macInfo;
 static unsigned long streamInfoFlags;
+static OSStatus defaultDeviceChangedListener(AudioObjectID inObjectID, UInt32 inNumberAddresses, const AudioObjectPropertyAddress inAddresses[], void *inClientData);
 #endif
 
 #ifdef _WIN32
@@ -635,6 +637,7 @@ u32_t get_padevice_maxrate (void)
 static int decode_portaudio_init(lua_State *L) {
 	PaError err;
 	void *buf;
+	static int first_time = 1;
 #ifndef PA18API
 	const char *palatency;
 	unsigned int userlatency;
@@ -643,7 +646,17 @@ static int decode_portaudio_init(lua_State *L) {
 	const char *panumbufs;
 #endif /* PA18API */
 
+	if (!first_time) {
+		/* in the absence of portaudio HotPlug support, re-initialize to get new devices */
+		if ((err = Pa_CloseStream(stream)) != paNoError) {
+			LOG_WARN(log_audio_output, "Pa_CloseStream() failed: %s", Pa_GetErrorText(err));
+		}
+		if ((err = Pa_Terminate()) != paNoError) {
+			LOG_WARN(log_audio_output, "Pa_Terminate() failed: %s", Pa_GetErrorText(err));
+		}
+	}
 	if ((err = Pa_Initialize()) != paNoError) {
+		LOG_WARN(log_audio_output, "Pa_Initialize() failed: %s", Pa_GetErrorText(err));
 		goto err0;
 	}
 
@@ -735,15 +748,32 @@ static int decode_portaudio_init(lua_State *L) {
 
 #endif /* PA18API */
 
-	/* allocate output memory */
-	buf = malloc(DECODE_AUDIO_BUFFER_SIZE);
-	if (!buf) {
-		goto err0;
+	if (first_time) {
+		/* allocate output memory */
+		buf = malloc(DECODE_AUDIO_BUFFER_SIZE);
+		if (!buf) {
+			goto err0;
+		}
+		decode_init_buffers(buf, false);
+	} else {
+		stream_sample_rate = 0; /* reset so that stream will be reopened */
 	}
-
-	decode_init_buffers(buf, false);
 	decode_audio->max_rate = get_padevice_maxrate();
 	decode_audio->set_sample_rate = 44100;
+
+#if defined(__APPLE__) && defined(__MACH__)
+	if (first_time) {
+		/* listen for changes to default audio output device */
+		AudioObjectAddPropertyListener(kAudioObjectSystemObject,
+					       &(AudioObjectPropertyAddress) {
+						       kAudioHardwarePropertyDefaultOutputDevice,
+						       kAudioObjectPropertyScopeGlobal,
+						       kAudioObjectPropertyElementMaster },
+					       defaultDeviceChangedListener,
+					       NULL);
+	}
+#endif
+	first_time = 0;
 
 	/* open stream */
 	decode_audio_lock();
@@ -766,4 +796,15 @@ struct decode_audio_func decode_portaudio = {
 	decode_portaudio_stop,
 };
 
+#if defined(__APPLE__) && defined(__MACH__)
+OSStatus defaultDeviceChangedListener(AudioObjectID inObjectID, UInt32 inNumberAddresses, const AudioObjectPropertyAddress inAddresses[], void *inClientData) {
+	(void)(inObjectID); // unused
+	(void)(inNumberAddresses);
+	(void)(inAddresses);
+	(void)(inClientData);
+
+	(void) decode_portaudio_init(NULL);
+	return 0;
+}
+#endif // APPLE
 #endif // HAVE_PORTAUDIO

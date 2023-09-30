@@ -27,6 +27,8 @@ export BUILD_TOP=$(BASE_DIR)build/osx
 
 export PREFIX=${BUILD_TOP}
 
+export JIVE_LDFLAGS=-Wl,-framework,CoreAudio
+
 ARCHFLAGS=-arch $(ARCH)
 export CFLAGS=-mcpu=G3 $(ARCHFLAGS) -I${PREFIX}/include -I${PREFIX}/include/SDL -isysroot /Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.3
 export LDFLAGS=$(ARCHFLAGS) -Wl,-syslibroot,/Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.3 -L${PREFIX}/lib -L/usr/lib
