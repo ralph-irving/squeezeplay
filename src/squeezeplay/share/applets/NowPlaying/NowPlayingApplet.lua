@@ -126,6 +126,7 @@ function init(self)
 	jnt:subscribe(self)
 	self.player = false
 	self.lastVolumeSliderAdjustT = 0
+	self.lastMouseClickT = 0
 	self.cumulativeScrollTicks = 0
 
 	local settings      = self:getSettings()
@@ -1324,6 +1325,14 @@ end
 function toggleNPScreenStyle(self)
 
 	log:debug('change window style')
+
+	-- double click in milliseconds
+	local now = Framework:getTicks()
+	if now - self.lastMouseClickT > 500 then
+		self.lastMouseClickT = now
+		return
+	end
+
 	local enabledNPScreenStyles = {}
 	for i, v in ipairs(self.nowPlayingScreenStyles) do
 		if v.enabled then
