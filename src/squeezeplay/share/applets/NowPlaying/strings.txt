@@ -227,3 +227,26 @@ NOW_PLAYING_VIEWS_HELP
 	RU	Существует несколько видов экрана воспроизведения, между которыми можно переключаться. Здесь можно выбрать несколько видов для этого плеера.
 	SV	Skärmbilden Nu spelas har några olika fönsterkonfigurationer eller vyer som du kan växla mellan. Här väljer du vilken vy du vill ha i den här spelaren.
 
+NOW_PLAYING_CLICK_MODE
+	EN	Click Mode
+
+NOW_PLAYING_CLICK_MODE_HELP
+	EN	Number of clicks to rotate views
+
+NOW_PLAYING_CLICK_MODE_SINGLE
+	EN	Single Click
+
+NOW_PLAYING_CLICK_MODE_DOUBLE
+	EN	Double Click
+
+NOW_PLAYING_CLICK_INTERVAL
+	EN	Double Click Time
+
+NOW_PLAYING_CLICK_INTERVAL_DEFAULT
+	EN	500 ms
+
+NOW_PLAYING_CLICK_INTERVAL_1000MS
+	EN	1 s
+
+NOW_PLAYING_CLICK_INTERVAL_2000MS
+	EN	2 s

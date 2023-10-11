@@ -130,8 +130,11 @@ function init(self)
 	self.cumulativeScrollTicks = 0
 
 	local settings      = self:getSettings()
+	local defaults      = self:getDefaultSettings()
 	self.scrollText     = settings["scrollText"]
 	self.scrollTextOnce = settings["scrollTextOnce"]
+	self.doubleClickMode = settings["doubleClickMode"] or defaults["doubleClickMode"]
+	self.doubleClickInterval = settings["doubleClickInterval"] or defaults["doubleClickInterval"]
 
 end
 
@@ -1328,7 +1331,7 @@ function toggleNPScreenStyle(self)
 
 	-- double click in milliseconds
 	local now = Framework:getTicks()
-	if now - self.lastMouseClickT > 500 then
+	if self.doubleClickMode and now - self.lastMouseClickT > self.doubleClickInterval then
 		self.lastMouseClickT = now
 		return
 	end
@@ -2000,4 +2003,66 @@ function free(self)
 	return true
 end
 
+function setDoubleClickMode(self, doubleClickMode)
+	self.doubleClickMode = doubleClickMode
+	local settings = self:getSettings()
+	settings.doubleClickMode = doubleClickMode
+	self:storeSettings()
+end
 
+function clickModeSettingsShow(self)
+	local window = Window("text_list", self:string('NOW_PLAYING_CLICK_MODE'))
+
+	local group = RadioGroup()
+
+	local menu = SimpleMenu("menu", {
+			{
+				text = self:string('NOW_PLAYING_CLICK_MODE_SINGLE'),
+				style = 'item_choice',
+				check = RadioButton("radio", group, function(event) self:setDoubleClickMode(false) end, not self.doubleClickMode)
+			},
+			{
+				text = self:string('NOW_PLAYING_CLICK_MODE_DOUBLE'),
+				style = 'item_choice',
+				check = RadioButton("radio", group, function(event) self:setDoubleClickMode(true) end, self.doubleClickMode)
+			},
+		})
+
+	window:addWidget(menu)
+	menu:setHeaderWidget(Textarea("help_text", self:string('NOW_PLAYING_CLICK_MODE_HELP')))
+	window:show()
+end
+
+function setDoubleClickInterval(self, interval)
+	self.doubleClickInterval = interval
+	local settings = self:getSettings()
+	settings.doubleClickInterval = interval
+	self:storeSettings()
+end
+
+function clickIntervalSettingsShow(self)
+	local window = Window("text_list", self:string('NOW_PLAYING_CLICK_INTERVAL'))
+
+	local group = RadioGroup()
+
+	local menu = SimpleMenu("menu", {
+			{
+				text = self:string('NOW_PLAYING_CLICK_INTERVAL_DEFAULT'),
+				style = 'item_choice',
+				check = RadioButton("radio", group, function(event) self:setDoubleClickInterval(500) end, self.doubleClickInterval == 500)
+			},
+			{
+				text = self:string('NOW_PLAYING_CLICK_INTERVAL_1000MS'),
+				style = 'item_choice',
+				check = RadioButton("radio", group, function(event) self:setDoubleClickInterval(1000) end, self.doubleClickInterval == 1000)
+			},
+			{
+				text = self:string('NOW_PLAYING_CLICK_INTERVAL_2000MS'),
+				style = 'item_choice',
+				check = RadioButton("radio", group, function(event) self:setDoubleClickInterval(2000) end, self.doubleClickInterval == 2000)
+			},
+		})
+
+	window:addWidget(menu)
+	window:show()
+end

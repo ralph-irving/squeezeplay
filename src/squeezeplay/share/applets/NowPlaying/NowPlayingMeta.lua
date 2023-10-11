@@ -19,6 +19,8 @@ function defaultSettings(self)
 		scrollText = true,
 		scrollTextOnce = false,
 		views = {},
+		doubleClickMode = false,
+		doubleClickInterval = 500,
 	}
 end
 
@@ -31,7 +33,8 @@ function registerApplet(self)
 			'SCREENSAVER_SCROLLMODE', 
 			function(applet, ...) 
 				applet:scrollSettingsShow(...) 
-			end
+			end,
+			2
 		)
 	)
 	jiveMain:addItem(
@@ -41,7 +44,30 @@ function registerApplet(self)
 			'NOW_PLAYING_VIEWS', 
 			function(applet, ...) 
 				applet:npviewsSettingsShow(...) 
-			end
+			end,
+			1
+		)
+	)
+	jiveMain:addItem(
+		self:menuItem(
+			'appletNowPlayingClickMode',
+			'screenSettingsNowPlaying',
+			'NOW_PLAYING_CLICK_MODE',
+			function(applet, ...)
+				applet:clickModeSettingsShow(...)
+			end,
+			3
+		)
+	)
+	jiveMain:addItem(
+		self:menuItem(
+			'appletNowPlayingClickInterval',
+			'screenSettingsNowPlaying',
+			'NOW_PLAYING_CLICK_INTERVAL',
+			function(applet, ...)
+				applet:clickIntervalSettingsShow(...)
+			end,
+			4
 		)
 	)
 	self:registerService('goNowPlaying')
