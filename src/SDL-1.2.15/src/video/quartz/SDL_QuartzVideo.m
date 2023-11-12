@@ -1563,9 +1563,7 @@ static void QZ_UpdateRects (_THIS, int numRects, SDL_Rect *rects)
         /* Do nothing if miniaturized */
     }
     else {
-	[ window_view setNeedsDisplay:YES ];
-	[ [ qz_window contentView ] setNeedsDisplay:YES ];
-	[ qz_window displayIfNeeded ];
+	dispatch_async(dispatch_get_main_queue(), ^(void){ [ window_view setNeedsDisplay:YES ]; [ [ qz_window contentView ] setNeedsDisplay:YES ]; [ qz_window displayIfNeeded ]; });
     }
 }
 
