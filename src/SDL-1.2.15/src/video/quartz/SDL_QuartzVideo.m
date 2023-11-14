@@ -940,9 +940,7 @@ static SDL_Surface* QZ_SetVideoFullScreen (_THIS, SDL_Surface *current, int widt
     /* Set app state, hide cursor if necessary, ... */
     QZ_DoActivate(this);
 
-    [ window_view setNeedsDisplay:YES ];
-  	[ [ qz_window contentView ] setNeedsDisplay:YES ];
-  	[ qz_window displayIfNeeded ];
+	dispatch_async(dispatch_get_main_queue(), ^(void){ [ window_view setNeedsDisplay:YES ]; [ [ qz_window contentView ] setNeedsDisplay:YES ]; [ qz_window displayIfNeeded ]; });
     
     return current;
 
@@ -1120,9 +1118,7 @@ static SDL_Surface* QZ_SetVideoWindowed (_THIS, SDL_Surface *current, int width,
     /* Save flags to ensure correct teardown */
     mode_flags = current->flags;
     
-    [ window_view setNeedsDisplay:YES ];
-   	[ [ qz_window contentView ] setNeedsDisplay:YES ];
-   	[ qz_window displayIfNeeded ];
+	dispatch_async(dispatch_get_main_queue(), ^(void){ [ window_view setNeedsDisplay:YES ]; [ [ qz_window contentView ] setNeedsDisplay:YES ]; [ qz_window displayIfNeeded ]; });
     
     /* Fade in again (asynchronously) if we came from a fullscreen mode and faded to black */
     if (fade_token != kCGDisplayFadeReservationInvalidToken) {
