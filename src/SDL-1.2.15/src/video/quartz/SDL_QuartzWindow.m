@@ -31,7 +31,7 @@
     it doesn't seem to matter what value it has.
 */
 static void QZ_SetPortAlphaOpaque () {
-    
+    return; // no longer needed
     SDL_Surface *surface = current_video->screen;
     int bpp;
     

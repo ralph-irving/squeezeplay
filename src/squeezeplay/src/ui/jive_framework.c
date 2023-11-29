@@ -328,6 +328,7 @@ static int jiveL_initSDL(lua_State *L) {
 		jive_surface_blit(splash, srf, (screen_w - splash_w) > 0 ?((screen_w - splash_w) / 2):0, (screen_w - splash_w) > 0 ?((screen_w - splash_w) / 2):0);
 		jive_surface_flip(srf);
 		LOG_INFO(log_ui_draw, "Splash %s %dx%d Screen %dx%d", splashfile,splash_w,splash_h,screen_w,screen_h);
+		SDL_PumpEvents(); // pump event queue to update screen
 	}
 
 	lua_getfield(L, 1, "screen");

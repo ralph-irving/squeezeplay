@@ -95,6 +95,7 @@ static int _new_image(const char *path) {
 			/* should probably be a fatal error */
 			return 0;
 		}
+		memset(images, 0, image_pool_size * sizeof(images[0]));
 	}
 
 	// Zero is invaild! so start at one... yes we waste an entry... but there is alot of code that relies on this
