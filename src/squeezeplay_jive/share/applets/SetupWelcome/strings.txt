@@ -153,19 +153,19 @@ CONNECTING_TO_SN
 	SV	Ansluts till
 
 MYSQUEEZEBOX_DOT_COM
-	CS	mysqueezebox.com
-	DA	mysqueezebox.com
-	DE	mysqueezebox.com
-	EN	mysqueezebox.com
-	ES	mysqueezebox.com
-	FI	mysqueezebox.com
-	FR	mysqueezebox.com
-	IT	mysqueezebox.com
-	NL	mysqueezebox.com
-	NO	mysqueezebox.com
-	PL	mysqueezebox.com
-	RU	mysqueezebox.com
-	SV	mysqueezebox.com
+	CS	Media Server
+	DA	Media Server
+	DE	Media Server
+	EN	Media Server
+	ES	Media Server
+	FI	Media Server
+	FR	Media Server
+	IT	Media Server
+	NL	Media Server
+	NO	Media Server
+	PL	Media Server
+	RU	Media Server
+	SV	Media Server
 
 CANT_CONNECT
 	CS	Nemohu připojit
@@ -183,19 +183,19 @@ CANT_CONNECT
 	SV	Det går inte att ansluta
 
 SN_DNS_WORKED
-	CS	Vypadá to, že firewall nebo jiný mechanismus blokuje vaše připojení. Pro další asistenci kontaktujte laskavě výrobce vašeho routeru nebo administrátora sítě nebo navštivte www.mysqueezebox.com/support.
-	DA	En firewall eller en anden mekanisme blokerer tilsyneladende forbindelsen. Kontakt forhandleren eller tjek routerproducentens hjemmeside, bed netværksadministratoren om hjælp, eller kig på www.mysqueezebox.com/support.
-	DE	Die Verbindung wird möglicherweise durch eine Firewall oder andere Programme blockiert. Wenden Sie sich für weitere Informationen an den Router-Hersteller oder Netzwerkadministrator oder besuchen Sie die Webseite unseres Kundendiensts unter www.mysqueezebox.com/support.
-	EN	A firewall or other mechanism seems to be blocking your connection. Please contact your router manufacturer or network admin for further assistance, or visit www.mysqueezebox.com/support.
-	ES	Parece que un servidor de seguridad o algún otro mecanismo está bloqueando la conexión. Póngase en contacto con el fabricante del enrutador o el administrador de la red para obtener ayuda o visite www.mysqueezebox.com/support.
-	FI	Vaikuttaa siltä, että palomuuri tai muu mekanismi estää yhteyden muodostamisen. Ota yhteys reitittimen valmistajaan tai verkon järjestelmänvalvojaan avun saamiseksi tai siirry osoitteeseen www.mysqueezebox.com/support.
-	FR	Un pare-feu ou autre mécanisme semble bloquer votre connexion. Contactez le fabricant de votre routeur ou l'administrateur réseau pour obtenir de l'aide, ou rendez-vous sur le site www.mysqueezebox.com/support.
-	IT	La connessione sembra essere bloccata da un firewall o da un altro meccanismo. Contattare il produttore del router o l'amministratore di rete per assistenza o visitare www.mysqueezebox.com/support.
-	NL	Een firewall of ander mechanisme lijkt je verbinding te blokkeren. Neem voor extra hulp contact op met de fabrikant van je router of met je netwerkbeheerder, of bezoek www.mysqueezebox.com/support.
-	NO	Det ser ut til at en brannmur eller liknende blokkerer tilkoplingen. Kontakt ruterprodusenten eller nettverksansvarlig hvis du trenger hjelp, eller gå til www.mysqueezebox.com/support.
-	PL	Połączenie jest blokowane przez zaporę lub inny mechanizm. Skontaktuj się z producentem routera lub administratorem sieci, aby uzyskać dalszą pomoc, albo odwiedź stronę www.mysqueezebox.com/support.
-	RU	По-видимому, брандмауэр или другой механизм блокирует подключение. Обратитесь за помощью к изготовителю маршрутизатора или администратору сети либо посетите  www.mysqueezebox.com/support.
-	SV	Det verkar som om anslutningen blockeras av en brandvägg (eller av något annat skydd). Ta kontakt med routerns tillverkare eller nätverksadministratören. Du kan också gå in på www.mysqueezebox.com/support.
+	CS	Vypadá to, že firewall nebo jiný mechanismus blokuje vaše připojení. Pro další asistenci kontaktujte laskavě výrobce vašeho routeru nebo administrátora sítě nebo navštivte forums.slimdevices.com.
+	DA	En firewall eller en anden mekanisme blokerer tilsyneladende forbindelsen. Kontakt forhandleren eller tjek routerproducentens hjemmeside, bed netværksadministratoren om hjælp, eller kig på forums.slimdevices.com.
+	DE	Die Verbindung wird möglicherweise durch eine Firewall oder andere Programme blockiert. Wenden Sie sich für weitere Informationen an den Router-Hersteller oder Netzwerkadministrator oder besuchen Sie die Webseite unseres Kundendiensts unter forums.slimdevices.com.
+	EN	A firewall or other mechanism seems to be blocking your connection. Please contact your router manufacturer or network admin for further assistance, or visit forums.slimdevices.com.
+	ES	Parece que un servidor de seguridad o algún otro mecanismo está bloqueando la conexión. Póngase en contacto con el fabricante del enrutador o el administrador de la red para obtener ayuda o visite forums.slimdevices.com.
+	FI	Vaikuttaa siltä, että palomuuri tai muu mekanismi estää yhteyden muodostamisen. Ota yhteys reitittimen valmistajaan tai verkon järjestelmänvalvojaan avun saamiseksi tai siirry osoitteeseen forums.slimdevices.com.
+	FR	Un pare-feu ou autre mécanisme semble bloquer votre connexion. Contactez le fabricant de votre routeur ou l'administrateur réseau pour obtenir de l'aide, ou rendez-vous sur le site forums.slimdevices.com.
+	IT	La connessione sembra essere bloccata da un firewall o da un altro meccanismo. Contattare il produttore del router o l'amministratore di rete per assistenza o visitare forums.slimdevices.com.
+	NL	Een firewall of ander mechanisme lijkt je verbinding te blokkeren. Neem voor extra hulp contact op met de fabrikant van je router of met je netwerkbeheerder, of bezoek forums.slimdevices.com.
+	NO	Det ser ut til at en brannmur eller liknende blokkerer tilkoplingen. Kontakt ruterprodusenten eller nettverksansvarlig hvis du trenger hjelp, eller gå til forums.slimdevices.com.
+	PL	Połączenie jest blokowane przez zaporę lub inny mechanizm. Skontaktuj się z producentem routera lub administratorem sieci, aby uzyskać dalszą pomoc, albo odwiedź stronę forums.slimdevices.com.
+	RU	По-видимому, брандмауэр или другой механизм блокирует подключение. Обратитесь за помощью к изготовителю маршрутизатора или администратору сети либо посетите  forums.slimdevices.com.
+	SV	Det verkar som om anslutningen blockeras av en brandvägg (eller av något annat skydd). Ta kontakt med routerns tillverkare eller nätverksadministratören. Du kan också gå in på forums.slimdevices.com.
 
 SN_DNS_FAILED
 	CS	Zdá se, že vaše internetové připojení nefunguje. Zkontrolujte vaši síť a ujistěte se, že je připojena a pracuje správně.

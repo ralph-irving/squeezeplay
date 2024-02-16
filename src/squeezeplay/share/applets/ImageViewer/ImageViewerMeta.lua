@@ -79,6 +79,8 @@ function defaultSettings(self)
 
 	defaultSetting["source"] = "http"
 	defaultSetting["card.path"] = "/media"
+
+-- FIXME Do we need to set valid paths for these examples?
 	defaultSetting["http.path"] = "http://www.mysqueezebox.com/static/images/imageviewer/sbtouch.lst"
 
 	if System:getMachine() == "baby" then
