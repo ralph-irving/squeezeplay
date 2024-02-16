@@ -118,10 +118,10 @@ function configureApplet(meta)
 		meta.state.player:setLastSqueezeCenter(server)
 	end
 
-	if settings.squeezeNetwork then
-		server = SlimServer(jnt, "mysqueezebox.com", "mysqueezebox.com")
-		server:updateInit({ip=jnt:getSNHostname()}, 9000)
-	end
+	-- if settings.squeezeNetwork then
+	--	server = SlimServer(jnt, "mysqueezebox.com", "mysqueezebox.com")
+	--	server:updateInit({ip=jnt:getSNHostname()}, 9000)
+	-- end
 
 	-- Init player
 	if settings.playerInit then

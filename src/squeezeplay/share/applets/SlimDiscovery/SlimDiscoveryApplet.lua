@@ -300,11 +300,12 @@ function _discover(self)
 	end
 
 
+	-- deprecated (used to enforce inclusion of mysqueezebox.com to the list of local servers)
 	-- Special case Squeezenetwork
-	if System:getUUID() then
-		squeezenetwork = SlimServer(jnt, "mysqueezebox.com", "mysqueezebox.com")
-		self:_serverUpdateAddress(squeezenetwork, jnt:getSNHostname(), 9000, "mysqueezebox.com")
-	end
+	-- if System:getUUID() then
+	--	squeezenetwork = SlimServer(jnt, "mysqueezebox.com", "mysqueezebox.com")
+	--	self:_serverUpdateAddress(squeezenetwork, jnt:getSNHostname(), 9000, "mysqueezebox.com")
+	-- end
 
 	-- Remove SqueezeCenters that have not been seen for a while
 	_squeezeCenterCleanup(self)

@@ -71,19 +71,22 @@ function configureApplet(meta)
 	local slimDiscovery = appletManager:loadApplet("SlimDiscovery")
 
 	-- Current server
-	if settings.squeezeNetwork then
-		server = SlimServer(jnt, "mysqueezebox.com", "mysqueezebox.com")
-		server:updateInit({ip=jnt:getSNHostname()}, 9000)
-		SlimServer:addLocallyRequestedServer(server)
+	-- if settings.squeezeNetwork then
+	--	server = SlimServer(jnt, "mysqueezebox.com", "mysqueezebox.com")
+	--	server:updateInit({ip=jnt:getSNHostname()}, 9000)
+	--	SlimServer:addLocallyRequestedServer(server)
 
-	elseif settings.serverName then
 --	elseif settings.serverName then
+	if settings.serverName then
 		if not settings.serverUuid then
 			settings.serverUuid = settings.serverName
 		end
 		server = SlimServer(jnt, settings.serverUuid, settings.serverName)
 		server:updateInit(settings.serverInit)
 		SlimServer:addLocallyRequestedServer(server)
+	else
+		-- FIXME With mysqueezebox.com gone this is an unhandled situation. Can player run with an empty server list?
+		log:error("no SqueezeCenter instance")
 	end
 
 	-- Current player
