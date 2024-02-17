@@ -365,17 +365,17 @@ SQUEEZECENTER_VERSION
 	SV	Uppgradera
 
 SQUEEZECENTER_VERSION_HELP
-	CS	%s vyžaduje aktualizaci na novější verzi Logitech Media Server.\n\nPro stažení nejnovější verze navštivte laskavě mysqueezebox.com/downloads.
-	DA	%s skal opdateres til en nyere version af Logitech Media Server.\n\nGå til mysqueezebox.com/downloads, og hent den nyeste version.
-	DE	%s muss auf eine neue Version von Logitech Media Server aktualisiert werden.\n\nLaden Sie unter mysqueezebox.com/downloads die neueste Version herunter.
-	EN	%s needs to be updated to a newer version of the Logitech Media Server.\n\nPlease visit mysqueezebox.com/downloads to download the latest version.
-	ES	%s debe actualizarse a una versión nueva de Logitech Media Server.\n\nVisite mysqueezebox.com/downloads para descargar la versión más reciente.
-	FI	%s täytyy päivittää Logitech Media Serverin uudempaan versioon.\n\nLataa uusin versio osoitteesta mysqueezebox.com/downloads.
-	FR	Vous devez mettre %s à jour à la dernière version du Logitech Media Server.\n\nVisitez mysqueezebox.com/downloads pour télécharger la dernière version.
-	IT	È necessario aggiornare %s a una versione più recente di Logitech Media Server.\n\nVisitare mysqueezebox.com/downloads per scaricarla.
-	NL	%s moet worden bijgewerkt naar een recentere versie van de Logitech Media Server.\n\nGa naar mysqueezebox.com/downloads om de nieuwste versie te downloaden.
-	NO	%s må oppdateres til en nyere versjon av Logitech Media Server.\n\nGå til mysqueezebox.com/downloads for å laste ned den nyeste versjonen.
-	PL	%s wymaga aktualizacji do nowszej wersji programu Logitech Media Server.\n\nOdwiedź witrynę mysqueezebox.com/downloads, aby pobrać najnowszą wersję.
-	RU	%s необходимо обновить до более новой версии Logitech Media Server.\n\nПосетите mysqueezebox.com/downloads, чтобы загрузить последнюю версию.
-	SV	%s måste uppdateras till en senare version av Logitech Media Server.\n\nGå till mysqueezebox.com/downloads för att ladda ner den senaste versionen.
+	CS	%s vyžaduje aktualizaci na novější verzi Logitech Media Server.\n\nPro stažení nejnovější verze navštivte laskavě lms-community.github.io/lms-server-repository.
+	DA	%s skal opdateres til en nyere version af Logitech Media Server.\n\nGå til lms-community.github.io/lms-server-repository, og hent den nyeste version.
+	DE	%s muss auf eine neue Version von Logitech Media Server aktualisiert werden.\n\nLaden Sie unter lms-community.github.io/lms-server-repository die neueste Version herunter.
+	EN	%s needs to be updated to a newer version of the Logitech Media Server.\n\nPlease visit lms-community.github.io/lms-server-repository to download the latest version.
+	ES	%s debe actualizarse a una versión nueva de Logitech Media Server.\n\nVisite lms-community.github.io/lms-server-repository para descargar la versión más reciente.
+	FI	%s täytyy päivittää Logitech Media Serverin uudempaan versioon.\n\nLataa uusin versio osoitteesta lms-community.github.io/lms-server-repository.
+	FR	Vous devez mettre %s à jour à la dernière version du Logitech Media Server.\n\nVisitez lms-community.github.io/lms-server-repository pour télécharger la dernière version.
+	IT	È necessario aggiornare %s a una versione più recente di Logitech Media Server.\n\nVisitare lms-community.github.io/lms-server-repository per scaricarla.
+	NL	%s moet worden bijgewerkt naar een recentere versie van de Logitech Media Server.\n\nGa naar lms-community.github.io/lms-server-repository om de nieuwste versie te downloaden.
+	NO	%s må oppdateres til en nyere versjon av Logitech Media Server.\n\nGå til lms-community.github.io/lms-server-repository for å laste ned den nyeste versjonen.
+	PL	%s wymaga aktualizacji do nowszej wersji programu Logitech Media Server.\n\nOdwiedź witrynę lms-community.github.io/lms-server-repository, aby pobrać najnowszą wersję.
+	RU	%s необходимо обновить до более новой версии Logitech Media Server.\n\nПосетите lms-community.github.io/lms-server-repository, чтобы загрузить последнюю версию.
+	SV	%s måste uppdateras till en senare version av Logitech Media Server.\n\nGå till lms-community.github.io/lms-server-repository för att ladda ner den senaste versionen.
 
