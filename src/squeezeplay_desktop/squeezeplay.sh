@@ -45,6 +45,11 @@ export PATH=$PATH:$INSTALL_DIR/bin
 # export USEALSAPERIODCOUNT=3
 # export USEALSANOMMAP=null
 #
+# Disable the playback and/or effects jive_alsa processes.
+#
+# export SQUEEZEPLAY_NOPLAYBACK=1
+# export SQUEEZEPLAY_NOEFFECTS=1
+#
 # Allow screensaver to start
 #
 # export SDL_VIDEO_ALLOW_SCREENSAVER=1

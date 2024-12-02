@@ -323,8 +323,12 @@ static int decode_alsa_init(lua_State *L) {
 
 	lua_pop(L, 2);
 
-	playback_pid = decode_alsa_fork(playback_device, capture_device, buffer_time, period_count, pcm_timeout,
-		sample_size, (FLAG_STREAM_PLAYBACK|flags));
+	/* Don't start playback jive_alsa if defined */
+	if ( getenv("SQUEEZEPLAY_NOPLAYBACK") == NULL )
+	{
+		playback_pid = decode_alsa_fork(playback_device, capture_device, buffer_time, period_count, pcm_timeout,
+			sample_size, (FLAG_STREAM_PLAYBACK|flags));
+	}
 
 	/* effects device */
 	if (effects_device) {
@@ -356,8 +360,12 @@ static int decode_alsa_init(lua_State *L) {
 
 		lua_pop(L, 2);
 
-		effect_pid = decode_alsa_fork(effects_device, NULL, buffer_time, period_count, pcm_timeout,
-			sample_size, (FLAG_STREAM_EFFECTS|flags));
+		/* Don't start effects jive_alsa if defined */
+		if ( getenv("SQUEEZEPLAY_NOEFFECTS") == NULL )
+		{
+			effect_pid = decode_alsa_fork(effects_device, NULL, buffer_time, period_count, pcm_timeout,
+				sample_size, (FLAG_STREAM_EFFECTS|flags));
+		}
 	}
 
 	lua_pop(L, 2);
