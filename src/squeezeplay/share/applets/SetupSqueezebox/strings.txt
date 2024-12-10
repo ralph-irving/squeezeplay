@@ -200,19 +200,19 @@ SQUEEZEBOX_ETHERNET_PROBLEM_HELP
 	SV	Det gick inte att ansluta Squeezebox till Ethernet-nätverket.
 
 SQUEEZEBOX_PROBLEM_HELP
-	CS	Nemohl jsem připojit váš Squeezebox k bezdrátové síti. Ujistěte se, že se nachází v rozsahu vaší bezdrátové sítě.
-	DA	Kunne ikke tilslutte din Squeezebox til dit trådløse netværk. Sikre dig at den er indenfor rækkevidde for dit trådløse netværk.
-	DE	Die Squeezebox konnte nicht mit dem kabellosen Netzwerk verbunden werden. Vergewissern Sie sich, dass sie sich in Reichweite befindet.
-	EN	We couldn't connect to %s.  Make sure your computer is turned on and connected to your local network, and that Logitech Media Server is currently running.
-	ES	No se pudo conectar Squeezebox a la red inalámbrica. Compruebe que se encuentre dentro del radio de la red inalámbrica.
-	FI	Squeezeboxin ja langattoman verkon välille ei voitu muodostaa yhteyttä. Varmista, että laite on langattoman verkon kantamalla.
-	FR	Impossible de connecter la Squeezebox à un réseau sans fil. Vérifiez qu'elle est à portée du réseau.
-	IT	Impossibile connettere Squeezebox alla rete senza fili. Verificare che si trovi entro la portata della rete senza fili.
-	NL	Je Squeezebox kan niet met je draadloze netwerk worden verbonden. Zorg dat het apparaat zich binnen het bereik van je draadloze netwerk bevindt.
-	NO	Kunne ikke kople Squeezebox til det trådløse nettverket. Forsikre deg om at den er innenfor rekkevidden til det trådløse nettverket ditt.
-	PL	Nie można podłączyć urządzenia Squeezebox do sieci bezprzewodowej. Upewnij się, czy znajduje się ono w zasięgu sieci bezprzewodowej.
-	RU	Не удалось подключить Squeezebox к вашей беспроводной сети. Убедитесь, что он находится в диапазоне беспроводной сети.
-	SV	Det gick inte att ansluta Squeezebox till det trådlösa nätverket. Se till att spelaren är placerad inom räckvidden för det trådlösa nätverket.
+	CS	Připojení k %s nebylo možné. Ujistěte se, že je váš počítač zapnutý a připojený k místní síti, a že je Lyrion Music Server spuštěn.
+	DA	Der kunne ikke oprettes forbindelse til %s. Kontroller at computeren er tændt, at den er sluttet til det lokale netværk, og at Lyrion Music Server kører.
+	DE	Verbindung mit %s nicht möglich. Vergewissern Sie sich, dass Ihr Computer eingeschaltet ist und mit dem lokalen Netzwerk verbunden ist. Stellen Sie sicher, das Lyrion Music Server ausgeführt wird.
+	EN	We couldn't connect to %s.  Make sure your computer is turned on and connected to your local network, and that Lyrion Music Server is currently running.
+	ES	No se ha podido establecer conexión con %s. Asegúrese de que el ordenador está encendido y conectado a la red local, y de que Lyrion Music Server se está ejecutando en este momento.
+	FI	Yhteyttä kohteeseen %s ei voitu muodostaa. Tarkista, että tietokone on päällä ja että se on yhdistetty paikallisverkkoon. Tarkista myös, että Lyrion Music Server on käynnissä.
+	FR	Connexion à %s impossible. Vérifiez que votre ordinateur est sous tension et connecté à votre réseau local et que le Lyrion Music Server est en cours d'exécution.
+	IT	Impossibile connettersi a %s. Verificare che il computer sia acceso e connesso alla rete locale e che Lyrion Music Server sia in esecuzione.
+	NL	Er kan geen verbinding worden gemaakt met %s. Controleer of je computer aanstaat en met je lokale netwerk is verbonden, en of Lyrion Music Server actief is.
+	NO	Kunne ikke kople til %s. Kontroller at datamaskinen kjører og er koplet til det lokale nettverket, og at Lyrion Music Server kjører.
+	PL	Nie można nawiązać połączenia z %s. Upewnij się, że komputer jest włączony i połączony z siecią lokalną, a program Lyrion Music Server jest uruchomiony.
+	RU	Не удалось подключиться к %s. Убедитесь, что компьютер включен и подключен к локальной сети и что Lyrion Music Server запущен.
+	SV	Det gick inte att ansluta till %s. Kontrollera att datorn är igång och ansluten till ditt lokala nätverk och att Lyrion Music Server körs för närvarande.
 
 SQUEEZEBOX_PROBLEM_LOST_CONNECTION
 	CS	(Spojení ztraceno).

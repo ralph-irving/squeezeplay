@@ -1,18 +1,18 @@
 
 SBS_SETTINGS
-	CS	Nastavení Logitech Media Server
-	DA	Indstillinger for Logitech Media Server
-	DE	Logitech Media Server-Einstellungen
-	EN	Logitech Media Server Settings
-	ES	Configuración de Logitech Media Server
-	FI	Logitech Media Serverin asetukset
-	FR	Réglages du Logitech Media Server
-	IT	Impostazioni di Logitech Media Server
-	NL	Instellingen van Logitech Media Server
-	NO	Innstillinger for Logitech Media Server
-	PL	Ustawienia programu Logitech Media Server
-	RU	Параметры Logitech Media Server
-	SV	Logitech Media Server-inställningar
+	CS	Nastavení Lyrion Music Server
+	DA	Indstillinger for Lyrion Music Server
+	DE	Lyrion Music Server-Einstellungen
+	EN	Lyrion Music Server Settings
+	ES	Configuración de Lyrion Music Server
+	FI	Lyrion Music Serverin asetukset
+	FR	Réglages du Lyrion Music Server
+	IT	Impostazioni di Lyrion Music Server
+	NL	Instellingen van Lyrion Music Server
+	NO	Innstillinger for Lyrion Music Server
+	PL	Ustawienia programu Lyrion Music Server
+	RU	Параметры Lyrion Music Server
+	SV	Lyrion Music Server-inställningar
 
 USB_SD_STORAGE
 	CS	USB & SD ukládání
