@@ -364,19 +364,19 @@ DNS_SERVER
 	SV	DNS-server\n%s
 
 SC_ADDRESS
-	CS	Logitech Media Server\n%s
-	DA	Logitech Media Server\n%s
-	DE	Logitech Media Server\n%s
-	EN	Logitech Media Server\n%s
-	ES	Logitech Media Server\n%s
-	FI	Logitech Media Server\n%s
-	FR	Logitech Media Server\n%s
-	IT	Logitech Media Server\n%s
-	NL	Logitech Media Server\n%s
-	NO	Logitech Media Server\n%s
-	PL	Logitech Media Server\n%s
-	RU	Logitech Media Server\n%s
-	SV	Logitech Media Server\n%s
+	CS	Lyrion Music Server\n%s
+	DA	Lyrion Music Server\n%s
+	DE	Lyrion Music Server\n%s
+	EN	Lyrion Music Server\n%s
+	ES	Lyrion Music Server\n%s
+	FI	Lyrion Music Server\n%s
+	FR	Lyrion Music Server\n%s
+	IT	Lyrion Music Server\n%s
+	NL	Lyrion Music Server\n%s
+	NO	Lyrion Music Server\n%s
+	PL	Lyrion Music Server\n%s
+	RU	Lyrion Music Server\n%s
+	SV	Lyrion Music Server\n%s
 
 SC_NAME
 	CS	Název knihovny\n%s

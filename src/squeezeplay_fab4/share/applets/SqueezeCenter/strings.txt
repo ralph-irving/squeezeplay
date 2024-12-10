@@ -3,64 +3,64 @@
 # http://en.wikipedia.org/wiki/List_of_ISO_639_codes
 
 START
-	CS	Spustit Logitech Media Server
-	DA	Start Logitech Media Server
-	DE	Logitech Media Server starten
-	EN	Start Logitech Media Server
-	ES	Iniciar Logitech Media Server
-	FI	Käynnistä Logitech Media Server
-	FR	Démarrer Logitech Media Server
-	IT	Avvia Logitech Media Server
-	NL	Logitech Media Server starten
-	NO	Start Logitech Media Server
-	PL	Uruchom program Logitech Media Server
-	RU	Запустить Logitech Media Server
-	SV	Starta Logitech Media Server
+	CS	Spustit Lyrion Music Server
+	DA	Start Lyrion Music Server
+	DE	Lyrion Music Server starten
+	EN	Start Lyrion Music Server
+	ES	Iniciar Lyrion Music Server
+	FI	Käynnistä Lyrion Music Server
+	FR	Démarrer Lyrion Music Server
+	IT	Avvia Lyrion Music Server
+	NL	Lyrion Music Server starten
+	NO	Start Lyrion Music Server
+	PL	Uruchom program Lyrion Music Server
+	RU	Запустить Lyrion Music Server
+	SV	Starta Lyrion Music Server
 
 STOP
-	CS	Zastavit Logitech Media Server
-	DA	Stop Logitech Media Server
-	DE	Anhalten von Logitech Media Server
-	EN	Stop Logitech Media Server
-	ES	Detener Logitech Media Server
-	FI	Pysäytä Logitech Media Server
-	FR	Arrêter le Logitech Media Server
-	IT	Arresta Logitech Media Server
-	NL	Logitech Media Server stoppen
-	NO	Stopp Logitech Media Server
-	PL	Zatrzymaj program Logitech Media Server
-	RU	Остановить Logitech Media Server
-	SV	Stoppa Logitech Media Server
+	CS	Zastavit Lyrion Music Server
+	DA	Stop Lyrion Music Server
+	DE	Anhalten von Lyrion Music Server
+	EN	Stop Lyrion Music Server
+	ES	Detener Lyrion Music Server
+	FI	Pysäytä Lyrion Music Server
+	FR	Arrêter le Lyrion Music Server
+	IT	Arresta Lyrion Music Server
+	NL	Lyrion Music Server stoppen
+	NO	Stopp Lyrion Music Server
+	PL	Zatrzymaj program Lyrion Music Server
+	RU	Остановить Lyrion Music Server
+	SV	Stoppa Lyrion Music Server
 
 STOP_INFO
-	CS	Opravdu chcete vypnout Logitech Media Server?
-	DA	Er du sikker på at du vil stoppe Logitech Media Server?
-	DE	Soll Logitech Media Server wirklich beendet werden?
-	EN	Are you sure you want to stop Logitech Media Server?
-	ES	¿Confirma que desea detener Logitech Media Server?
-	FI	Haluatko varmasti pysäyttää Logitech Media Serverin?
-	FR	Voulez-vous vraiment arrêter Logitech Media Server?
-	IT	Arrestare Logitech Media Server?
-	NL	Weet je zeker dat je Logitech Media Server wilt stoppen?
-	NO	Er du sikker på at du vil stanse Logitech Media Server?
-	PL	Czy na pewno chcesz zatrzymać program Logitech Media Server?
-	RU	Остановить Logitech Media Server?
-	SV	Vill du stoppa Logitech Media Server?
+	CS	Opravdu chcete vypnout Lyrion Music Server?
+	DA	Er du sikker på at du vil stoppe Lyrion Music Server?
+	DE	Soll Lyrion Music Server wirklich beendet werden?
+	EN	Are you sure you want to stop Lyrion Music Server?
+	ES	¿Confirma que desea detener Lyrion Music Server?
+	FI	Haluatko varmasti pysäyttää Lyrion Music Serverin?
+	FR	Voulez-vous vraiment arrêter Lyrion Music Server?
+	IT	Arrestare Lyrion Music Server?
+	NL	Weet je zeker dat je Lyrion Music Server wilt stoppen?
+	NO	Er du sikker på at du vil stanse Lyrion Music Server?
+	PL	Czy na pewno chcesz zatrzymać program Lyrion Music Server?
+	RU	Остановить Lyrion Music Server?
+	SV	Vill du stoppa Lyrion Music Server?
 
 SQUEEZEBOX_SERVER
-	CS	Logitech Media Server
-	DA	Logitech Media Server
-	DE	Logitech Media Server
-	EN	Logitech Media Server
-	ES	Logitech Media Server
-	FI	Logitech Media Server
-	FR	Logitech Media Server
-	IT	Logitech Media Server
-	NL	Logitech Media Server
-	NO	Logitech Media Server
-	PL	Logitech Media Server
-	RU	Logitech Media Server
-	SV	Logitech Media Server
+	CS	Lyrion Music Server
+	DA	Lyrion Music Server
+	DE	Lyrion Music Server
+	EN	Lyrion Music Server
+	ES	Lyrion Music Server
+	FI	Lyrion Music Server
+	FR	Lyrion Music Server
+	IT	Lyrion Music Server
+	NL	Lyrion Music Server
+	NO	Lyrion Music Server
+	PL	Lyrion Music Server
+	RU	Lyrion Music Server
+	SV	Lyrion Music Server
 
 WIPE_AND_RESTART
 	CS	Smazat a znovu prohledat
@@ -93,19 +93,19 @@ REMOVING_DATABASE
 	SV	Tar bort befintlig databas
 
 WIPE_AND_RESTART_INFO
-	CS	Jste si jistí, že chcete smazat stávající databázi Logitech Media Server database a začít prohledávat vaše soubory znovu?
-	DA	Er du sikker på at du vil slette den eksisterende Logitech Media Server-database og registrere alle dine filer igen?
-	DE	Wollen Sie Ihre bestehende Logitech Media Server-Datenbank wirklich löschen und Ihre Dateien neu durchsuchen?
-	EN	Are you sure you want to wipe your existing Logitech Media Server database and start over scanning your files?
-	ES	¿Confirma que desea borrar la base de datos de Logitech Media Server existente y volver a examinar los archivos?
-	FI	Haluatko varmasti pyyhkiä vanhan Logitech Media Server -tietokannan ja aloittaa tiedostojen tarkistuksen alusta?
-	FR	Etes-vous sûr de vouloir supprimer la base de données Logitech Media Server existante et de vouloir redémarrer l'analyse de vos fichiers?
-	IT	Eliminare il database Logitech Media Server esistente e ripetere l'analisi dei file?
-	NL	Weet je zeker dat je je bestaande Logitech Media Server-database wilt wissen en je bestanden opnieuw wilt scannen?
-	NO	Er du sikker på at du vil tømme den eksisterende Logitech Media Server-databasen og starte søk i filene dine på nytt?
-	PL	Czy na pewno chcesz usunąć istniejącą bazę danych programu Logitech Media Server i ponownie rozpocząć wyszukiwanie plików?
-	RU	Стереть существующую базу данных Logitech Media Server и запустить сканирование файлов?
-	SV	Vill du rensa din befintliga Logitech Media Server-databas och börja om från början med att läsa in filer?
+	CS	Jste si jistí, že chcete smazat stávající databázi Lyrion Music Server database a začít prohledávat vaše soubory znovu?
+	DA	Er du sikker på at du vil slette den eksisterende Lyrion Music Server-database og registrere alle dine filer igen?
+	DE	Wollen Sie Ihre bestehende Lyrion Music Server-Datenbank wirklich löschen und Ihre Dateien neu durchsuchen?
+	EN	Are you sure you want to wipe your existing Lyrion Music Server database and start over scanning your files?
+	ES	¿Confirma que desea borrar la base de datos de Lyrion Music Server existente y volver a examinar los archivos?
+	FI	Haluatko varmasti pyyhkiä vanhan Lyrion Music Server -tietokannan ja aloittaa tiedostojen tarkistuksen alusta?
+	FR	Etes-vous sûr de vouloir supprimer la base de données Lyrion Music Server existante et de vouloir redémarrer l'analyse de vos fichiers?
+	IT	Eliminare il database Lyrion Music Server esistente e ripetere l'analisi dei file?
+	NL	Weet je zeker dat je je bestaande Lyrion Music Server-database wilt wissen en je bestanden opnieuw wilt scannen?
+	NO	Er du sikker på at du vil tømme den eksisterende Lyrion Music Server-databasen og starte søk i filene dine på nytt?
+	PL	Czy na pewno chcesz usunąć istniejącą bazę danych programu Lyrion Music Server i ponownie rozpocząć wyszukiwanie plików?
+	RU	Стереть существующую базу данных Lyrion Music Server и запустить сканирование файлов?
+	SV	Vill du rensa din befintliga Lyrion Music Server-databas och börja om från början med att läsa in filer?
 
 STOP_RESCAN_START
 	CS	Zastavit-Znovu prohledat-Znovu spustit
@@ -123,34 +123,34 @@ STOP_RESCAN_START
 	SV	Stoppa-Sök igen-Starta om
 
 STOP_RESCAN_START_INFO
-	CS	Jste si jistý, že chcete restartovat Logitech Media Server?
-	DA	Er du sikker på at du vil genstarte Logitech Media Server?
-	DE	Soll Logitech Media Server wirklich neu gestartet werden?
-	EN	Are you sure you want to restart Logitech Media Server?
-	ES	¿Confirma que desea reiniciar Logitech Media Server?
-	FI	Haluatko varmasti käynnistää Logitech Media Serverin uudelleen?
-	FR	Voulez-vous vraiment redémarrer Logitech Media Server?
-	IT	Riavviare Logitech Media Server?
-	NL	Weet je zeker dat je Logitech Media Server opnieuw wilt opstarten?
-	NO	Er du sikker på at du vil starte Logitech Media Server på nytt?
-	PL	Czy na pewno chcesz uruchomić ponownie program Logitech Media Server?
-	RU	Перезапустить Logitech Media Server?
-	SV	Vill du starta om Logitech Media Server?
+	CS	Jste si jistý, že chcete restartovat Lyrion Music Server?
+	DA	Er du sikker på at du vil genstarte Lyrion Music Server?
+	DE	Soll Lyrion Music Server wirklich neu gestartet werden?
+	EN	Are you sure you want to restart Lyrion Music Server?
+	ES	¿Confirma que desea reiniciar Lyrion Music Server?
+	FI	Haluatko varmasti käynnistää Lyrion Music Serverin uudelleen?
+	FR	Voulez-vous vraiment redémarrer Lyrion Music Server?
+	IT	Riavviare Lyrion Music Server?
+	NL	Weet je zeker dat je Lyrion Music Server opnieuw wilt opstarten?
+	NO	Er du sikker på at du vil starte Lyrion Music Server på nytt?
+	PL	Czy na pewno chcesz uruchomić ponownie program Lyrion Music Server?
+	RU	Перезапустить Lyrion Music Server?
+	SV	Vill du starta om Lyrion Music Server?
 
 STARTING_SQUEEZECENTER
-	CS	Spouštění Logitech Media Server
-	DA	Starter Logitech Media Server
-	DE	Logitech Media Server wird gestartet...
-	EN	Starting Logitech Media Server
-	ES	Iniciando Logitech Media Server
-	FI	Käynnistetään Logitech Media Server
-	FR	Démarrage du Logitech Media Server
-	IT	Avvio di Logitech Media Server
-	NL	Logitech Media Server wordt gestart
-	NO	Starter Logitech Media Server
-	PL	Logitech Media Server — uruchamianie
-	RU	Logitech Media Server запускается
-	SV	Startar Logitech Media Server
+	CS	Spouštění Lyrion Music Server
+	DA	Starter Lyrion Music Server
+	DE	Lyrion Music Server wird gestartet...
+	EN	Starting Lyrion Music Server
+	ES	Iniciando Lyrion Music Server
+	FI	Käynnistetään Lyrion Music Server
+	FR	Démarrage du Lyrion Music Server
+	IT	Avvio di Lyrion Music Server
+	NL	Lyrion Music Server wordt gestart
+	NO	Starter Lyrion Music Server
+	PL	Lyrion Music Server — uruchamianie
+	RU	Lyrion Music Server запускается
+	SV	Startar Lyrion Music Server
 
 STARTING_SQUEEZECENTER_TEXT
 	CS	Spuštění by mělo trvat asi minutu.
@@ -168,19 +168,19 @@ STARTING_SQUEEZECENTER_TEXT
 	SV	Det bör ta omkring en minut att starta.
 
 STOPPING_SQUEEZECENTER
-	CS	Zastavování Logitech Media Server
-	DA	Stopper Logitech Media Server
-	DE	Logitech Media Server wird angehalten...
-	EN	Stopping Logitech Media Server
-	ES	Deteniendo Logitech Media Server
-	FI	Pysäytetään Logitech Media Server
-	FR	Arrêt du Logitech Media Server
-	IT	Arresto di Logitech Media Server
-	NL	Logitech Media Server wordt gestopt
-	NO	Stopper Logitech Media Server
-	PL	Zatrzymywanie programu Logitech Media Server
-	RU	Logitech Media Server останавливается
-	SV	Stoppar Logitech Media Server
+	CS	Zastavování Lyrion Music Server
+	DA	Stopper Lyrion Music Server
+	DE	Lyrion Music Server wird angehalten...
+	EN	Stopping Lyrion Music Server
+	ES	Deteniendo Lyrion Music Server
+	FI	Pysäytetään Lyrion Music Server
+	FR	Arrêt du Lyrion Music Server
+	IT	Arresto di Lyrion Music Server
+	NL	Lyrion Music Server wordt gestopt
+	NO	Stopper Lyrion Music Server
+	PL	Zatrzymywanie programu Lyrion Music Server
+	RU	Lyrion Music Server останавливается
+	SV	Stoppar Lyrion Music Server
 
 RESCAN_SQUEEZECENTER
 	CS	Zahajování opětovného prohledávání
@@ -213,34 +213,34 @@ RESCAN_SQUEEZECENTER_TEXT
 	SV	Detta kan ta flera minuter.
 
 RESTART_SQUEEZECENTER
-	CS	Restarovat Logitech Media Server
-	DA	Genstart Logitech Media Server
-	DE	Logitech Media Server neu starten
-	EN	Restart Logitech Media Server
-	ES	Reiniciar Logitech Media Server
-	FI	Käynnistä Logitech Media Server uudelleen
-	FR	Redémarrer Logitech Media Server
-	IT	Riavvia Logitech Media Server
-	NL	Logitech Media Server opnieuw opstarten
-	NO	Start Logitech Media Server på nytt
-	PL	Uruchom ponownie program Logitech Media Server
-	RU	Перезапустить Logitech Media Server
-	SV	Starta om Logitech Media Server
+	CS	Restarovat Lyrion Music Server
+	DA	Genstart Lyrion Music Server
+	DE	Lyrion Music Server neu starten
+	EN	Restart Lyrion Music Server
+	ES	Reiniciar Lyrion Music Server
+	FI	Käynnistä Lyrion Music Server uudelleen
+	FR	Redémarrer Lyrion Music Server
+	IT	Riavvia Lyrion Music Server
+	NL	Lyrion Music Server opnieuw opstarten
+	NO	Start Lyrion Music Server på nytt
+	PL	Uruchom ponownie program Lyrion Music Server
+	RU	Перезапустить Lyrion Music Server
+	SV	Starta om Lyrion Music Server
 
 RESTARTING_SQUEEZECENTER
-	CS	Spouštění Logitech Media Server
-	DA	Starter Logitech Media Server
-	DE	Logitech Media Server wird gestartet...
-	EN	Starting Logitech Media Server
-	ES	Iniciando Logitech Media Server
-	FI	Käynnistetään Logitech Media Server
-	FR	Démarrage du Logitech Media Server
-	IT	Avvio di Logitech Media Server
-	NL	Logitech Media Server wordt gestart
-	NO	Starter Logitech Media Server
-	PL	Logitech Media Server — uruchamianie
-	RU	Logitech Media Server запускается
-	SV	Startar Logitech Media Server
+	CS	Spouštění Lyrion Music Server
+	DA	Starter Lyrion Music Server
+	DE	Lyrion Music Server wird gestartet...
+	EN	Starting Lyrion Music Server
+	ES	Iniciando Lyrion Music Server
+	FI	Käynnistetään Lyrion Music Server
+	FR	Démarrage du Lyrion Music Server
+	IT	Avvio di Lyrion Music Server
+	NL	Lyrion Music Server wordt gestart
+	NO	Starter Lyrion Music Server
+	PL	Lyrion Music Server — uruchamianie
+	RU	Lyrion Music Server запускается
+	SV	Startar Lyrion Music Server
 
 PLEASE_WAIT
 	CS	Čekejte, prosím...
@@ -258,19 +258,19 @@ PLEASE_WAIT
 	SV	Ett ögonblick...
 
 STATUS_SQUEEZECENTER_RUNNING
-	CS	Logitech Media Server je spuštěn
-	DA	Logitech Media Server kører
-	DE	Logitech Media Server wird ausgeführt
-	EN	Logitech Media Server is running
-	ES	Logitech Media Server se está ejecutando
-	FI	Logitech Media Server on käynnistymässä
-	FR	Logitech Media Server est en cours d'exécution
-	IT	Logitech Media Server è in esecuzione
-	NL	Logitech Media Server wordt uitgevoerd
-	NO	Logitech Media Server kjører
-	PL	Program Logitech Media Server jest uruchomiony
-	RU	Logitech Media Server выполняется
-	SV	Logitech Media Server körs
+	CS	Lyrion Music Server je spuštěn
+	DA	Lyrion Music Server kører
+	DE	Lyrion Music Server wird ausgeführt
+	EN	Lyrion Music Server is running
+	ES	Lyrion Music Server se está ejecutando
+	FI	Lyrion Music Server on käynnistymässä
+	FR	Lyrion Music Server est en cours d'exécution
+	IT	Lyrion Music Server è in esecuzione
+	NL	Lyrion Music Server wordt uitgevoerd
+	NO	Lyrion Music Server kjører
+	PL	Program Lyrion Music Server jest uruchomiony
+	RU	Lyrion Music Server выполняется
+	SV	Lyrion Music Server körs
 
 STATUS_SCANNER_RUNNING
 	CS	Scanner běží
@@ -288,19 +288,19 @@ STATUS_SCANNER_RUNNING
 	SV	Sökningen körs
 
 STATUS_NOTHING
-	CS	Neběží ani Logitech Media Server ani scanner
-	DA	Hverken Logitech Media Server eller indekseringstjenesten kører
-	DE	Weder Logitech Media Server noch der Scanner werden ausgeführt.
-	EN	Neither Logitech Media Server nor the scanner are running
-	ES	Ni Logitech Media Server ni el examinador se están ejecutando
-	FI	Logitech Media Server ja skanneri eivät ole käynnissä
-	FR	Logitech Media Server et l'analyseur ne sont pas en cours d'exécution
-	IT	Logitech Media Server e l'analisi non sono in esecuzione
-	NL	De Logitech Media Server en de scanner worden geen van beiden uitgevoerd
-	NO	Verken Logitech Media Server eller søket kjører
-	PL	Program Logitech Media Server i moduł przeszukiwania nie są uruchomione
-	RU	Logitech Media Server и сканер не выполняются
-	SV	Varken Logitech Media Server eller sökningen körs
+	CS	Neběží ani Lyrion Music Server ani scanner
+	DA	Hverken Lyrion Music Server eller indekseringstjenesten kører
+	DE	Weder Lyrion Music Server noch der Scanner werden ausgeführt.
+	EN	Neither Lyrion Music Server nor the scanner are running
+	ES	Ni Lyrion Music Server ni el examinador se están ejecutando
+	FI	Lyrion Music Server ja skanneri eivät ole käynnissä
+	FR	Lyrion Music Server et l'analyseur ne sont pas en cours d'exécution
+	IT	Lyrion Music Server e l'analisi non sono in esecuzione
+	NL	De Lyrion Music Server en de scanner worden geen van beiden uitgevoerd
+	NO	Verken Lyrion Music Server eller søket kjører
+	PL	Program Lyrion Music Server i moduł przeszukiwania nie są uruchomione
+	RU	Lyrion Music Server и сканер не выполняются
+	SV	Varken Lyrion Music Server eller sökningen körs
 
 SCANNER_NO_STATUS
 	CS	Vyhledávání hudebních souborů v médiích, prosím, vyčkejte ...
@@ -693,19 +693,19 @@ TOTAL_TIME
 	SV	Total tid:
 
 FAILED_TO_START
-	CS	Spuštění Logitech Media Server se nezdařilo
-	DA	Logitech Media Server blev ikke startet
-	DE	Logitech Media Server konnte nicht gestartet werden.
-	EN	Logitech Media Server failed to start
-	ES	No se ha podido iniciar Logitech Media Server
-	FI	Logitech Media Server ei käynnistynyt
-	FR	Echec du démarrage de Logitech Media Server
-	IT	Avvio di Logitech Media Server non riuscito
-	NL	Logitech Media Server is niet gestart
-	NO	Logitech Media Server startet ikke
-	PL	Uruchomienie programu Logitech Media Server nie powiodło się
-	RU	Не удалось запустить Logitech Media Server
-	SV	Logitech Media Server kunde inte starta.
+	CS	Spuštění Lyrion Music Server se nezdařilo
+	DA	Lyrion Music Server blev ikke startet
+	DE	Lyrion Music Server konnte nicht gestartet werden.
+	EN	Lyrion Music Server failed to start
+	ES	No se ha podido iniciar Lyrion Music Server
+	FI	Lyrion Music Server ei käynnistynyt
+	FR	Echec du démarrage de Lyrion Music Server
+	IT	Avvio di Lyrion Music Server non riuscito
+	NL	Lyrion Music Server is niet gestart
+	NO	Lyrion Music Server startet ikke
+	PL	Uruchomienie programu Lyrion Music Server nie powiodło się
+	RU	Не удалось запустить Lyrion Music Server
+	SV	Lyrion Music Server kunde inte starta.
 
 INTERNAL_ERROR
 	CS	Interní chyba
@@ -933,34 +933,34 @@ USE_DRIVE_USB
 	SV	Använd USB-enhet
 
 MULTIPLE_DRIVES_DETECTED
-	CS	Zvolte zařízení Logitech Media Server
-	DA	Vælg Logitech Media Server-enhed
-	DE	Logitech Media Server-Gerät wählen
-	EN	Choose Logitech Media Server Device
-	ES	Seleccionar dispositivo Logitech Media Server
-	FI	Valitse Logitech Media Server -laite
-	FR	Choisissez le dispositif Logitech Media Server
-	IT	Scegli dispositivo Logitech Media Server
-	NL	Logitech Media Server-apparaat kiezen
-	NO	Velg enhet for Logitech Media Server
-	PL	Wybierz urządzenie Logitech Media Server
-	RU	Выберите устройство Logitech Media Server
-	SV	Välj Logitech Media Server-enhet
+	CS	Zvolte zařízení Lyrion Music Server
+	DA	Vælg Lyrion Music Server-enhed
+	DE	Lyrion Music Server-Gerät wählen
+	EN	Choose Lyrion Music Server Device
+	ES	Seleccionar dispositivo Lyrion Music Server
+	FI	Valitse Lyrion Music Server -laite
+	FR	Choisissez le dispositif Lyrion Music Server
+	IT	Scegli dispositivo Lyrion Music Server
+	NL	Lyrion Music Server-apparaat kiezen
+	NO	Velg enhet for Lyrion Music Server
+	PL	Wybierz urządzenie Lyrion Music Server
+	RU	Выберите устройство Lyrion Music Server
+	SV	Välj Lyrion Music Server-enhet
 
 MULTIPLE_DRIVES_DETECTED_INFO
-	CS	K vašemu Squeezebox Touch je připojeno více paměťových zařízení. Vyberte laskavě jedno z nich k použití se Logitech Media Server.
-	DA	Der er sluttet flere lagerenheder til din Squeezebox Touch. Vælg hvilken der skal bruges til Logitech Media Server.
-	DE	Mehrere Speichergeräte wurden an die Squeezebox Touch angeschlossen. Wählen Sie das mit Logitech Media Server zu verwendende Gerät.
-	EN	Multiple storage devices are attached to your Squeezebox Touch. Please select one device for use with Logitech Media Server.
-	ES	Hay varios dispositivos de almacenamiento conectados a Squeezebox Touch. Seleccione un dispositivo para usarlo con Logitech Media Server.
-	FI	Squeezebox Touchiin on liitetty useita tallennusvälineitä. Valitse yksi laite käyttäväksi Logitech Media Serverin kanssa.
-	FR	Plusieurs dispositifs de stockage sont connectés à votre Squeezebox Touch. Sélectionnez le dispositif à utiliser avec Logitech Media Server.
-	IT	A Squeezebox Touch sono collegati più dispositivi di memorizzazione. Selezionarne uno da utilizzare con Logitech Media Server.
-	NL	Er zijn meerdere opslagapparaten aan je Squeezebox Touch gekoppeld. Selecteer één apparaat voor gebruik met Logitech Media Server.
-	NO	Flere lagringsenheter er koplet til Squeezebox Touch. Velg én enhet du vil bruke med Logitech Media Server.
-	PL	Do urządzenia Squeezebox Touch przyłączonych jest kilka urządzeń pamięci masowej. Wybierz jedno urządzenie, które ma być używane z programem Logitech Media Server.
-	RU	К устройству Squeezebox Touch присоединено несколько накопителей. Выберите одно устройство для использования со Logitech Media Server.
-	SV	Det finns flera lagringsenheter anslutna till Squeezebox Touch. Välj vilken av dem som ska användas med Logitech Media Server.
+	CS	K vašemu Squeezebox Touch je připojeno více paměťových zařízení. Vyberte laskavě jedno z nich k použití se Lyrion Music Server.
+	DA	Der er sluttet flere lagerenheder til din Squeezebox Touch. Vælg hvilken der skal bruges til Lyrion Music Server.
+	DE	Mehrere Speichergeräte wurden an die Squeezebox Touch angeschlossen. Wählen Sie das mit Lyrion Music Server zu verwendende Gerät.
+	EN	Multiple storage devices are attached to your Squeezebox Touch. Please select one device for use with Lyrion Music Server.
+	ES	Hay varios dispositivos de almacenamiento conectados a Squeezebox Touch. Seleccione un dispositivo para usarlo con Lyrion Music Server.
+	FI	Squeezebox Touchiin on liitetty useita tallennusvälineitä. Valitse yksi laite käyttäväksi Lyrion Music Serverin kanssa.
+	FR	Plusieurs dispositifs de stockage sont connectés à votre Squeezebox Touch. Sélectionnez le dispositif à utiliser avec Lyrion Music Server.
+	IT	A Squeezebox Touch sono collegati più dispositivi di memorizzazione. Selezionarne uno da utilizzare con Lyrion Music Server.
+	NL	Er zijn meerdere opslagapparaten aan je Squeezebox Touch gekoppeld. Selecteer één apparaat voor gebruik met Lyrion Music Server.
+	NO	Flere lagringsenheter er koplet til Squeezebox Touch. Velg én enhet du vil bruke med Lyrion Music Server.
+	PL	Do urządzenia Squeezebox Touch przyłączonych jest kilka urządzeń pamięci masowej. Wybierz jedno urządzenie, które ma być używane z programem Lyrion Music Server.
+	RU	К устройству Squeezebox Touch присоединено несколько накопителей. Выберите одно устройство для использования со Lyrion Music Server.
+	SV	Det finns flera lagringsenheter anslutna till Squeezebox Touch. Välj vilken av dem som ska användas med Lyrion Music Server.
 
 TIME_LEFT
 	CS	Zbývající čas
@@ -993,19 +993,19 @@ PERCENT_DONE
 	SV	Procent klart
 
 SERVER_STATUS
-	CS	Stav Logitech Media Server
-	DA	Status for Logitech Media Server
-	DE	Logitech Media Server-Status
-	EN	Logitech Media Server Status
-	ES	Estado de Logitech Media Server
-	FI	Logitech Media Serverin tila
-	FR	Etat du Logitech Media Server
-	IT	Stato di Logitech Media Server
-	NL	Status van Logitech Media Server
-	NO	Status for Logitech Media Server
-	PL	Stan programu Logitech Media Server
-	RU	Статус Logitech Media Server
-	SV	Logitech Media Server-status
+	CS	Stav Lyrion Music Server
+	DA	Status for Lyrion Music Server
+	DE	Lyrion Music Server-Status
+	EN	Lyrion Music Server Status
+	ES	Estado de Lyrion Music Server
+	FI	Lyrion Music Serverin tila
+	FR	Etat du Lyrion Music Server
+	IT	Stato di Lyrion Music Server
+	NL	Status van Lyrion Music Server
+	NO	Status for Lyrion Music Server
+	PL	Stan programu Lyrion Music Server
+	RU	Статус Lyrion Music Server
+	SV	Lyrion Music Server-status
 
 MY_MUSIC
 	CS	Moje hudba
@@ -1053,47 +1053,47 @@ SKIP
 	SV	Hoppa över
 
 SWITCH_MEDIA_HELP
-	CS	Logitech Media Server je spuštěn, ale momentálně je nakonfigurován, aby přehrával hudbu z jiného zařízení. Z této nabídky můžete nastavit cestu na jinou jednotku.
-	DA	Logitech Media Server kører, men er konfigureret til at transmittere musik fra en anden enhed. Du kan pege på et andet drev fra denne menu.
-	DE	Logitech Media Server wird ausgeführt, ist aber für die Musikwiedergabe von einem anderen Gerät konfiguriert. In diesem Menü können Sie eine Auswahl für ein anderes Gerät treffen.
-	EN	Logitech Media Server is running but is currently configured to serve music from a different device. From this menu you can choose to point to a different drive.
-	ES	Logitech Media Server está en ejecución, pero se ha configurado para ofrecer música de un dispositivo diferente. Desde este menú se puede apuntar a otra unidad.
-	FI	Logitech Media Server on käytössä, mutta se on nyt määritetty syöttämään musiikkia toiselta laitteelta. Tällä valikolla voit valita sen osoittamaan toiseen asemaan.
-	FR	Logitech Media Server est en cours d'exécution mais est paramétré pour lire de la musique à partir d'un autre dispositif. Dans ce menu, vous pouvez modifier le lecteur source.
-	IT	Logitech Media Server è in esecuzione ma è configurato per inviare musica da un dispositivo differente. Da questo menu è possibile puntare a un'unità diversa.
-	NL	Logitech Media Server is actief maar wordt momenteel geconfigureerd om muziek van een ander apparaat af te spelen. Via dit menu kun je een ander station toewijzen.
-	NO	Logitech Media Server kjører, men er konfigurert til å spille av musikk fra en annen enhet. Du kan velge en annen stasjon fra denne menyen.
-	PL	Program Logitech Media Server jest uruchomiony, ale jego obecna konfiguracja dotyczy odtwarzania muzyki z innego urządzenia. W tym menu można wskazać inny napęd.
-	RU	Logitech Media Server запущен, но настроен на воспроизведение музыки с другого устройства. В этом меню можно выбрать другой диск.
-	SV	Logitech Media Server körs men är konfigurerad för att spela musik från en annan enhet. Du kan välja en annan enhet från den här menyn.
+	CS	Lyrion Music Server je spuštěn, ale momentálně je nakonfigurován, aby přehrával hudbu z jiného zařízení. Z této nabídky můžete nastavit cestu na jinou jednotku.
+	DA	Lyrion Music Server kører, men er konfigureret til at transmittere musik fra en anden enhed. Du kan pege på et andet drev fra denne menu.
+	DE	Lyrion Music Server wird ausgeführt, ist aber für die Musikwiedergabe von einem anderen Gerät konfiguriert. In diesem Menü können Sie eine Auswahl für ein anderes Gerät treffen.
+	EN	Lyrion Music Server is running but is currently configured to serve music from a different device. From this menu you can choose to point to a different drive.
+	ES	Lyrion Music Server está en ejecución, pero se ha configurado para ofrecer música de un dispositivo diferente. Desde este menú se puede apuntar a otra unidad.
+	FI	Lyrion Music Server on käytössä, mutta se on nyt määritetty syöttämään musiikkia toiselta laitteelta. Tällä valikolla voit valita sen osoittamaan toiseen asemaan.
+	FR	Lyrion Music Server est en cours d'exécution mais est paramétré pour lire de la musique à partir d'un autre dispositif. Dans ce menu, vous pouvez modifier le lecteur source.
+	IT	Lyrion Music Server è in esecuzione ma è configurato per inviare musica da un dispositivo differente. Da questo menu è possibile puntare a un'unità diversa.
+	NL	Lyrion Music Server is actief maar wordt momenteel geconfigureerd om muziek van een ander apparaat af te spelen. Via dit menu kun je een ander station toewijzen.
+	NO	Lyrion Music Server kjører, men er konfigurert til å spille av musikk fra en annen enhet. Du kan velge en annen stasjon fra denne menyen.
+	PL	Program Lyrion Music Server jest uruchomiony, ale jego obecna konfiguracja dotyczy odtwarzania muzyki z innego urządzenia. W tym menu można wskazać inny napęd.
+	RU	Lyrion Music Server запущен, но настроен на воспроизведение музыки с другого устройства. В этом меню можно выбрать другой диск.
+	SV	Lyrion Music Server körs men är konfigurerad för att spela musik från en annan enhet. Du kan välja en annan enhet från den här menyn.
 
 SWITCH_MEDIA
-	CS	Použít %s pro Logitech Media Server
-	DA	Brug %s til Logitech Media Server
-	DE	Verwenden Sie %s für Logitech Media Server
-	EN	Use %s for Logitech Media Server
-	ES	Use %s para Logitech Media Server
-	FI	Käytä kohdetta %s  Logitech Media Serveriin.
-	FR	Utiliser %s pour Logitech Media Server
-	IT	Usa %s per Logitech Media Server
-	NL	%s voor Logitech Media Server gebruiken
-	NO	Bruk %s for Logitech Media Server
-	PL	Użyj elementu %s w programie Logitech Media Server
-	RU	Использовать %s для Logitech Media Server
-	SV	Använd %s för Logitech Media Server
+	CS	Použít %s pro Lyrion Music Server
+	DA	Brug %s til Lyrion Music Server
+	DE	Verwenden Sie %s für Lyrion Music Server
+	EN	Use %s for Lyrion Music Server
+	ES	Use %s para Lyrion Music Server
+	FI	Käytä kohdetta %s  Lyrion Music Serveriin.
+	FR	Utiliser %s pour Lyrion Music Server
+	IT	Usa %s per Lyrion Music Server
+	NL	%s voor Lyrion Music Server gebruiken
+	NO	Bruk %s for Lyrion Music Server
+	PL	Użyj elementu %s w programie Lyrion Music Server
+	RU	Использовать %s для Lyrion Music Server
+	SV	Använd %s för Lyrion Music Server
 
 SQUEEZEBOX_SERVER_DISK_EJECT_WARNING
-	CS	Výstraha: V tomto zařízení je právě spuštěn Logitech Media Server. Přehrávání z tohoto Logitech Media Server bude přerušeno, pokud tuto jednotku vysunete.
-	DA	Advarsel: Logitech Media Server kører på denne enhed. Al afspilning fra denne Logitech Media Server ophører når drevet fjernes.
-	DE	Warnung: Auf diesem Gerät wird aktuell Logitech Media Server ausgeführt. Die Wiedergabe von diesem Logitech Media Server wird beendet, sobald der Datenträger ausgeworfen wird.
-	EN	Warning: This device is currently running Logitech Media Server. All playback from this Logitech Media Server will cease when this drive is ejected.
-	ES	Advertencia: este dispositivo está ejecutando Logitech Media Server en este momento. Toda reproducción desde este Logitech Media Server se detendrá al expulsar la unidad.
-	FI	Varoitus: Tämä laite käyttää parhaillaan Logitech Media Serveriä. Kaikki äänentoisto tältä Logitech Media Serveriltä lakkaa, kun tämä asema irrotetaan.
-	FR	Attention: ce dispositif fonctionne actuellement avec SqueezeBox Server. Toutes les lectures depuis Logitech Media Server seront arrêtées quand vous éjecterez ce lecteur.
-	IT	Attenzione: in questo dispositivo è in esecuzione Logitech Media Server. Quando questa unità verrà espulsa, la riproduzione proveniente da questo Logitech Media Server terminerà.
-	NL	Waarschuwing: Logitech Media Server is momenteel actief op dit apparaat. Het afspelen via deze Logitech Media Server wordt gestopt als dit station wordt vrijgegeven.
-	NO	Advarsel: Denne enheten kjører for øyeblikket Logitech Media Server. All avspilling fra Logitech Media Server stanser når du løser ut denne stasjonen.
-	PL	Ostrzeżenie: Na tym urządzeniu jest obecnie uruchomiony program Logitech Media Server. Po odłączeniu tego napędu odtwarzanie wszystkich elementów używanych w programie Logitech Media Server zostanie zatrzymane.
-	RU	Предупреждение. На этом устройстве сейчас запущен Logitech Media Server. При извлечении диска воспроизведение с помощью Logitech Media Server будет остановлено.
-	SV	Varning: Logitech Media Server körs för närvarande på den här enheten. Alla uppspelningar från Logitech Media Server upphör när enheten matas ut.
+	CS	Výstraha: V tomto zařízení je právě spuštěn Lyrion Music Server. Přehrávání z tohoto Lyrion Music Server bude přerušeno, pokud tuto jednotku vysunete.
+	DA	Advarsel: Lyrion Music Server kører på denne enhed. Al afspilning fra denne Lyrion Music Server ophører når drevet fjernes.
+	DE	Warnung: Auf diesem Gerät wird aktuell Lyrion Music Server ausgeführt. Die Wiedergabe von diesem Lyrion Music Server wird beendet, sobald der Datenträger ausgeworfen wird.
+	EN	Warning: This device is currently running Lyrion Music Server. All playback from this Lyrion Music Server will cease when this drive is ejected.
+	ES	Advertencia: este dispositivo está ejecutando Lyrion Music Server en este momento. Toda reproducción desde este Lyrion Music Server se detendrá al expulsar la unidad.
+	FI	Varoitus: Tämä laite käyttää parhaillaan Lyrion Music Serveriä. Kaikki äänentoisto tältä Lyrion Music Serveriltä lakkaa, kun tämä asema irrotetaan.
+	FR	Attention: ce dispositif fonctionne actuellement avec SqueezeBox Server. Toutes les lectures depuis Lyrion Music Server seront arrêtées quand vous éjecterez ce lecteur.
+	IT	Attenzione: in questo dispositivo è in esecuzione Lyrion Music Server. Quando questa unità verrà espulsa, la riproduzione proveniente da questo Lyrion Music Server terminerà.
+	NL	Waarschuwing: Lyrion Music Server is momenteel actief op dit apparaat. Het afspelen via deze Lyrion Music Server wordt gestopt als dit station wordt vrijgegeven.
+	NO	Advarsel: Denne enheten kjører for øyeblikket Lyrion Music Server. All avspilling fra Lyrion Music Server stanser når du løser ut denne stasjonen.
+	PL	Ostrzeżenie: Na tym urządzeniu jest obecnie uruchomiony program Lyrion Music Server. Po odłączeniu tego napędu odtwarzanie wszystkich elementów używanych w programie Lyrion Music Server zostanie zatrzymane.
+	RU	Предупреждение. На этом устройстве сейчас запущен Lyrion Music Server. При извлечении диска воспроизведение с помощью Lyrion Music Server будет остановлено.
+	SV	Varning: Lyrion Music Server körs för närvarande på den här enheten. Alla uppspelningar från Lyrion Music Server upphör när enheten matas ut.
 

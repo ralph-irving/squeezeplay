@@ -46,17 +46,17 @@ INFOBROWSER_NOINFO_SN
 	SV	Inga informationsflöden hittades. Logga in på mysqueezebox.com-kontot och lägg till informationsflöden.
 
 INFOBROWSER_NOINFO_SC
-	CS	Nenalezeny žádné informační kanály. K přidání infokanálů pod nabídku Extra/Prohlížeč informací použijte webové rozhraní Logitech Media Server.
-	DA	Der blev ikke fundet nogen informationsfeeds. Du kan tilføje nogen via den webbaserede brugerflade til Logitech Media Server under Ekstra/Informationsaflæser.
-	DE	Keine Info-Feeds gefunden. In der Logitech Media Server-Web-Benutzeroberfläche können Sie unter Extras/Info-Browser Info-Feeds hinzufügen.
-	EN	No information feeds found.  Please use the Logitech Media Server web interface to add information feeds under Extras/Info Browser.
-	ES	No se ha encontrado ninguna fuente de información. Utilice la interfaz Web de Logitech Media Server para agregar fuentes de información (vaya a Extras/Navegador de información).
-	FI	Informaatiosyötteitä ei löytynyt.  Lisää syötteitä Logitech Media Serverin internet-käyttöliittymän kohdassa Muut/Informaatioselain.
-	FR	Aucun flux d'informations n'a été trouvé. Utilisez l'interface Web Logitech Media Server pour ajouter des flux d'informations sous Extras/Navigateur info.
-	IT	Nessun feed di informazioni trovato. Utilizzare l'interfaccia Web di Logitech Media Server per aggiungere i feed di informazioni in Extra/Browser informazioni.
-	NL	Geen informatiekanalen gevonden. Gebruik de webinterface van Logitech Media Server om informatiekanalen onder 'Extra's/Infobrowser' toe te voegen.
-	NO	Fant ingen informasjonsfeeder. Bruk Logitech Media Server-webgrensesnittet for å legge til informasjonsfeeder under Tillegg/Informasjonsleser.
-	PL	Nie znaleziono żadnych kanałów informacji. Użyj interfejsu internetowego programu Logitech Media Server, aby dodać kanały informacji na ekranie Dodatki/Przeglądarka informacji.
-	RU	Не найдены каналы информации. Используйте веб-интерфейс Logitech Media Server, чтобы добавить каналы информации в группе "Дополнения/Информационный браузер".
-	SV	Inga informationsflöden hittades. Använd Logitech Media Servers webbgränssnitt för att lägga till informationsflöden under Extrafunktioner/Infoläsaren.
+	CS	Nenalezeny žádné informační kanály. K přidání infokanálů pod nabídku Extra/Prohlížeč informací použijte webové rozhraní Lyrion Music Server.
+	DA	Der blev ikke fundet nogen informationsfeeds. Du kan tilføje nogen via den webbaserede brugerflade til Lyrion Music Server under Ekstra/Informationsaflæser.
+	DE	Keine Info-Feeds gefunden. In der Lyrion Music Server-Web-Benutzeroberfläche können Sie unter Extras/Info-Browser Info-Feeds hinzufügen.
+	EN	No information feeds found.  Please use the Lyrion Music Server web interface to add information feeds under Extras/Info Browser.
+	ES	No se ha encontrado ninguna fuente de información. Utilice la interfaz Web de Lyrion Music Server para agregar fuentes de información (vaya a Extras/Navegador de información).
+	FI	Informaatiosyötteitä ei löytynyt.  Lisää syötteitä Lyrion Music Serverin internet-käyttöliittymän kohdassa Muut/Informaatioselain.
+	FR	Aucun flux d'informations n'a été trouvé. Utilisez l'interface Web Lyrion Music Server pour ajouter des flux d'informations sous Extras/Navigateur info.
+	IT	Nessun feed di informazioni trovato. Utilizzare l'interfaccia Web di Lyrion Music Server per aggiungere i feed di informazioni in Extra/Browser informazioni.
+	NL	Geen informatiekanalen gevonden. Gebruik de webinterface van Lyrion Music Server om informatiekanalen onder 'Extra's/Infobrowser' toe te voegen.
+	NO	Fant ingen informasjonsfeeder. Bruk Lyrion Music Server-webgrensesnittet for å legge til informasjonsfeeder under Tillegg/Informasjonsleser.
+	PL	Nie znaleziono żadnych kanałów informacji. Użyj interfejsu internetowego programu Lyrion Music Server, aby dodać kanały informacji na ekranie Dodatki/Przeglądarka informacji.
+	RU	Не найдены каналы информации. Используйте веб-интерфейс Lyrion Music Server, чтобы добавить каналы информации в группе "Дополнения/Информационный браузер".
+	SV	Inga informationsflöden hittades. Använd Lyrion Music Servers webbgränssnitt för att lägga till informationsflöden under Extrafunktioner/Infoläsaren.
 
