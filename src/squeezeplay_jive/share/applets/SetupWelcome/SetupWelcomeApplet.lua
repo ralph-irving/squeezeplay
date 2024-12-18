@@ -60,60 +60,7 @@ oo.class(_M, Applet)
 
 
 function startSetup(self)
-	-- flag to SN that we are in setup for testing
-	jnt.inSetupHack = true
-
 	step1(self)
-end
-
-
-function startRegister(self)
-	step7(self)
-end
-
-
-function _consumeAction(self, event)
-	log:warn("HOME ACTIONS ARE DISABLED IN SETUP. USE LONG-PRESS-HOLD BACK BUTTON INSTEAD")
-	-- don't allow this event to continue
-	return EVENT_CONSUME
-end
-
-function _disableNormalEscapeMechanisms(self)
-
-	if not self.disableHomeActionDuringSetup then
-		self.disableHomeActionDuringSetup = Framework:addActionListener("go_home", self, _consumeAction)
-		self.disableHomeOrNowPlayingActionDuringSetup = Framework:addActionListener("go_home_or_now_playing", self, _consumeAction)
-		self.disableHomeKeyDuringSetup =
---			Framework:addListener(EVENT_KEY_PRESS | EVENT_KEY_HOLD, -- don't suppress hold for jive, since it is the power button
-			Framework:addListener(EVENT_KEY_PRESS,
-			function(event)
-				local keycode = event:getKeycode()
-				if keycode == KEY_HOME then
-					log:warn("HOME KEY IS DISABLED IN SETUP. USE LONG-PRESS-HOLD BACK BUTTON INSTEAD")
-					-- don't allow this event to continue
-					return EVENT_CONSUME
-				end
-				return EVENT_UNUSED
-			end)
-
-		-- soft_reset escapes setup (need to clean up when this happens)
-		self.freeAppletWhenEscapingSetup =
-			Framework:addActionListener("soft_reset", self,
-			function(self, event)
-				self:_enableNormalEscapeMechanisms()
-				return EVENT_UNUSED
-			end)
-	end
-end
-
-
-function _enableNormalEscapeMechanisms(self)
-	log:info("_enableNormalEscapeMechanisms")
-
-	Framework:removeListener(self.disableHomeActionDuringSetup)
-	Framework:removeListener(self.disableHomeOrNowPlayingActionDuringSetup)
-	Framework:removeListener(self.disableHomeKeyDuringSetup)
-	Framework:removeListener(self.freeAppletWhenEscapingSetup)
 end
 
 
@@ -139,7 +86,6 @@ function _setupComplete(self, gohome)
 	log:info("_setupComplete gohome=", gohome)
 
 	jiveMain:removeItemById('returnToSetup')
-	self:_enableNormalEscapeMechanisms()
 
 	if gohome then
 		jiveMain:closeToHome(true, Window.transitionPushLeft)
@@ -151,7 +97,6 @@ function step1(self)
 	-- add 'RETURN_TO_SETUP' at top
 	log:debug('step1')
 	self:_addReturnToSetupToHomeMenu()
-	self:_disableNormalEscapeMechanisms()
 
 	-- choose language
 	appletManager:callService("setupShowSetupLanguage",
@@ -214,7 +159,7 @@ function step51(self)
 	-- Connect using squeezebox in adhoc mode
 	return appletManager:callService("setupAdhocShow",
 				function()
-					self:step7()
+					self:step8point5()
 				end)
 end
 
@@ -225,7 +170,7 @@ function step52(self)
 	-- Connect using regular network, i.e. connect to AP
 	return appletManager:callService("setupNetworking",
 			function()
-				self:step7()
+				self:step8point5()
 			end)
 end
 
@@ -256,121 +201,16 @@ function setupConnectionShow(self, setupSqueezebox, setupNetwork)
 end
 
 
-function _anySqueezeCenterWithUpgradeFound(self)
-	local anyFound = false
-	for _,server in appletManager:callService("iterateSqueezeCenters") do
-		if server:isCompatible() and server:getUpgradeUrl() and not server:isSqueezeNetwork() then
-			log:info("At least one compatible SC with an available upgrade found. First found: ", server)
-			anyFound = true
-			break
-		end
-	end
-
-	return anyFound
-end
-
-function step7(self)
-	log:info("step7")
-
-	-- Once here, network setup is complete
-	self:_setupDone(true, false)
-
-	-- Bug 12786: Selecting a Network, then backing out
-	--  and re-selecting will cause network errors
-	self.registerRequest = false
-
-	--might be coming into this from a restart, so re-disable
-	self:_disableNormalEscapeMechanisms()
-	self:_addReturnToSetupToHomeMenu()
-
-	-- Find squeezenetwork server
-	local squeezenetwork = false
-	for name, server in slimServer:iterate() do
-		if server:isSqueezeNetwork() then
-			squeezenetwork = server
-		end
-	end
-
-	if not squeezenetwork then
-		log:error("no SqueezeNetwork instance")
-		step8point5(self, squeezenetwork)
-		return
-	end
-
-	local settings = self:getSettings()
-	if settings.registerDone then
-		log:error("SqueezeNetwork registration complete")
-		step8point5(self, squeezenetwork)
-		return
-	end
-end
-
-
-function step8(self, squeezenetwork)
-	log:info("step8")
-	if not squeezenetwork:isConnected() then
-		log:info("get SC from one of discovered SCs")
-		appletManager:callService("firmwareUpgrade", nil)
-		return
-	end
-end
-
-
 -- step 8.5 makes sure we have a current player, this will already be the
 -- case for a local player or a bridged setup (on jive).
 
-function step8point5(self, squeezenetwork)
+function step8point5(self)
 	log:info("step8point5")
-	assert(squeezenetwork)
-
-	local player = appletManager:callService("getCurrentPlayer")
-	if player then
-		return self:step8point7(squeezenetwork)
-	end
 
 	-- find player
 	return appletManager:callService("setupShowSelectPlayer", function()
-		self:step8point7(squeezenetwork)
+		self:step9()
 	end, 'setuptitle')
-end
-
-
--- step 8.7 make sure the player is connected to SN
-
-function step8point7(self, squeezenetwork)
-	log:info("step8point7")
-	assert(squeezenetwork)
-
-	-- if player is still not connected, now connect to SN
-	local player = appletManager:callService("getCurrentPlayer")
-	assert(player)
-
-	if not player:getSlimServer() then
-		log:info("connect ", player, " to ", squeezenetwork)
-		player:connectToServer(squeezenetwork)
-	end
-
-	self:step9()
-end
-
-
-function _registerRequest(self, squeezenetwork)
-	if self.registerRequest then
-		return
-	end
-
-	--defer setting self.registerRequest until first register command completes to avoid race condition where serverLinked occurs early in a
-	--  "register or continue" situation since the server in that case is already linked
-	local successCallback = function(requireAlreadyLinked)
-		self.registerRequest = true
-		self.registerRequestRequireAlreadyLinked = requireAlreadyLinked
-	end
-
-	log:info("registration on SN")
-	appletManager:callService("squeezeNetworkRequest", { 'register', 0, 100, 'service:SN' }, true, successCallback )
-
-	self.locked = true -- don't free applet
-	jnt:subscribe(self)
 end
 
 
@@ -379,9 +219,6 @@ function step9(self)
 
 	_setupComplete(self, false)
 	_setupDone(self, true, true)
-
-	self.locked = true -- free applet
-	jnt:unsubscribe(self)
 
 	jiveMain:goHome()
 
@@ -400,35 +237,11 @@ function notify_playerCurrent(self, player)
 		return
 	end
 
-	if server:isSqueezeNetwork() then
-		return
-	end
-
-	log:info("Calling step9. server: ", server)
+	log:info("Calling step9 server: ", server)
 
 	step9(self)
 end
 
-
-
-function notify_serverLinked(self, server, wasAlreadyLinked)
-	log:info("notify_serverLinked: ", server)
-
-	if not server:isSqueezeNetwork() then
-		return
-	end
-
-	if not self.registerRequest then
-		return
-	end
-
-	--avoid race condition where we are in the registerRequest but for a player that is already linked
-	if  self.registerRequestRequireAlreadyLinked and not wasAlreadyLinked then
-		return
-	end
-
-	step8point5(self, server)
-end
 
 function isSetupDone(self)
 	local settings = self:getSettings()
@@ -451,12 +264,10 @@ function _setupDone(self, setupDone, registerDone)
 end
 
 
---[[
 function init(self)
 	log:info("subscribe")
 	jnt:subscribe(self)
 end
---]]
 
 
 function free(self)
