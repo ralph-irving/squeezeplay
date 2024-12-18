@@ -1,6 +1,6 @@
 ################################################################################
 # Squeezeplay makefile for OS X 10.7+ x86_64
-# Copyright 2021 Ralph Irving
+# Copyright 2021-2024 Ralph Irving
 ################################################################################
 
 #
@@ -186,11 +186,11 @@ portaudio: portaudio_v19/Makefile
 	cd portaudio_v19; make && make install
 	cd portaudio_v19; cp include/pa_mac_core.h $(BUILD_TOP)/include/
 
-fdk-aac-2.0.1/Makefile:
-	cd fdk-aac-2.0.1; ./configure ${ENABLE_PROFILING} --prefix=${PREFIX}
+fdk-aac-2.0.3/Makefile:
+	cd fdk-aac-2.0.3; ./configure ${ENABLE_PROFILING} --prefix=${PREFIX}
 
-fdkaac: fdk-aac-2.0.1/Makefile
-	cd fdk-aac-2.0.1; make; make install
+fdkaac: fdk-aac-2.0.3/Makefile
+	cd fdk-aac-2.0.3; make; make install
 
 # libogg
 libogg-1.2.2/Makefile:
@@ -283,7 +283,7 @@ clean:
 	-cd portaudio_v19; make distclean
 	@echo "----------------------------------------------------------"
 	@echo "Cleaning: fdk-aac"
-	-cd fdk-aac-2.0.1; make distclean
+	-cd fdk-aac-2.0.3; make distclean
 	@echo "----------------------------------------------------------"
 	@echo "Cleaning: tremor"
 	-cd Tremor; make distclean ; rm -rf autom4te.cache; rm -f debian/Makefile.in

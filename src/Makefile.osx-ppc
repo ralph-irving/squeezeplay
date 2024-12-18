@@ -1,7 +1,7 @@
 ################################################################################
 # Squeezeplay makefile for OS X 10.3+ ppc
 # Copyright 2007 Logitech
-# Copyright 2021 Ralph Irving
+# Copyright 2021-2024 Ralph Irving
 ################################################################################
 
 #
@@ -31,6 +31,7 @@ export JIVE_LDFLAGS=-Wl,-framework,CoreAudio
 
 ARCHFLAGS=-arch $(ARCH)
 export CFLAGS=-mcpu=G3 $(ARCHFLAGS) -I${PREFIX}/include -I${PREFIX}/include/SDL -isysroot /Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.3
+export CXXFLAGS=-mcpu=G3 $(ARCHFLAGS) -I${PREFIX}/include -I${PREFIX}/include/SDL -isysroot /Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.3
 export LDFLAGS=$(ARCHFLAGS) -Wl,-syslibroot,/Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.3 -L${PREFIX}/lib -L/usr/lib
 
 export TOOLPATH=$(shell dirname `which gcc`)
@@ -184,8 +185,15 @@ tolua++:
 # squeezeplay
 #
 
-.PHONY: app portaudio libogg flac libmad tremor squeezeplay squeezeplay_desktop squeezeplay_contrib freefont squeezeplay_dmg rtmp
-app: portaudio libogg flac libmad tremor squeezeplay squeezeplay_desktop squeezeplay_contrib freefont rtmp squeezeplay_dmg
+.PHONY: app portaudio fdkaac libogg flac libmad tremor squeezeplay squeezeplay_desktop squeezeplay_contrib freefont squeezeplay_dmg rtmp
+app: portaudio fdkaac libogg flac libmad tremor squeezeplay squeezeplay_desktop squeezeplay_contrib freefont rtmp squeezeplay_dmg
+
+# fdkaac
+fdk-aac-2.0.3/Makefile:
+	cd fdk-aac-2.0.3; ./configure ${ENABLE_PROFILING} --prefix=${PREFIX}
+
+fdkaac: fdk-aac-2.0.3/Makefile
+	cd fdk-aac-2.0.3; make; make install
 
 # portaudio
 portaudio_v19/Makefile:
@@ -210,20 +218,12 @@ flac: flac-1.2.1/Makefile
 	cd flac-1.2.1; make && make install
 
 # libmad
-LIBMAD_DIR=libmad-0.15.1b-10
+LIBMAD_DIR=libmad-0.15.1b-11
 
 generated/${LIBMAD_DIR}/_patched.txt:
 	mkdir -p generated
 	cd generated; tar -xzf ../${LIBMAD_DIR}.tar.gz; \
-	touch ${LIBMAD_DIR}/aclocal.m4; \
-	patch -p0 < ../libmad-0.15.1b-10-universal-configure.ac.patch; \
-	patch -p0 < ../libmad-0.15.1b-10-universal-config.h.in.patch; \
-	touch ${LIBMAD_DIR}/Makefile.am ; \
-	touch ${LIBMAD_DIR}/config.h ; \
-	touch ${LIBMAD_DIR}/Makefile.in ; \
-	patch -p0 < ../libmad-0.15.1b-10-universal-configure.patch; \
-	touch ${LIBMAD_DIR}/_patched.txt
-		
+
 generated/${LIBMAD_DIR}/Makefile: generated/${LIBMAD_DIR}/_patched.txt 
 	cd generated/${LIBMAD_DIR}; ./configure --enable-shared=no --enable-fpm=ppc --prefix=${PREFIX}
 
@@ -300,7 +300,7 @@ clean:
 	-cd Tremor; make distclean ; rm -rf autom4te.cache; rm -f debian/Makefile.in
 	@echo "----------------------------------------------------------"
 	@echo "Cleaning: mad"
-	-cd libmad-0.15.1b-10; make distclean
+	-cd generated/${LIBMAD_DIR}; make distclean
 	@echo "----------------------------------------------------------"
 	@echo "Cleaning: libpng"
 	-cd libpng-1.2.59; make distclean
@@ -364,6 +364,9 @@ clean:
 	@echo "----------------------------------------------------------"
 	@echo "Cleaning: tolua++"
 	-cd tolua++-1.0.92/src/lib; rm libtolua++.a; rm *.o
+	@echo "----------------------------------------------------------"
+	@echo "Cleaning: fdk-aac"
+	-cd fdk-aac-2.0.3; make distclean
 	@echo "----------------------------------------------------------"
 	@echo "Cleaning: tolua++"
 	-cd luamd5; make MYNAME=sha1 clean

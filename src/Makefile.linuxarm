@@ -1,7 +1,7 @@
 ################################################################################
 # Squeezeplay makefile for Linux armel and raspberry pi armhf
 # Copyright 2007 Logitech
-# Copyright 2021 Ralph Irving
+# Copyright 2021-2024 Ralph Irving
 ################################################################################
 
 # Additional packages required to build
@@ -201,11 +201,11 @@ tolua++: lua
 app: fdkaac libogg flac libmad tremor ${SPPRIVATE_TARGETS} squeezeplay squeezeplay_desktop squeezeplay_contrib freefont rtmp squeezeplay-tgz 
 
 # fdkaac
-fdk-aac-2.0.1/Makefile:
-	cd fdk-aac-2.0.1; ./configure ${ENABLE_PROFILING} --prefix=${PREFIX}
+fdk-aac-2.0.3/Makefile:
+	cd fdk-aac-2.0.3; ./configure ${ENABLE_PROFILING} --prefix=${PREFIX}
 
-fdkaac: fdk-aac-2.0.1/Makefile
-	cd fdk-aac-2.0.1; make; make install
+fdkaac: fdk-aac-2.0.3/Makefile
+	cd fdk-aac-2.0.3; make; make install
 
 # libogg
 libogg-1.2.2/Makefile:
@@ -342,7 +342,7 @@ clean:
 	-cd luamd5; make MYNAME=sha1 clean
 	-cd luamd5; make MYNAME=md5 clean
 	-cd tolua++-1.0.92/src/lib; rm libtolua++.so; rm *.o
-	-cd fdk-aac-2.0.1; make distclean
+	-cd fdk-aac-2.0.3; make distclean
 	-cd libogg-1.2.2; make distclean
 	-cd Tremor; make distclean
 	-cd flac-1.2.1; make distclean; rm src/libFLAC++/flac++.pc; find . -type f -name Makefile -exec rm {} \; ; find . -type d -name '.deps' -exec rm -rf {} \;

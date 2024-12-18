@@ -1,7 +1,7 @@
 ################################################################################
 # Squeezeplay makefile for OpenIndiana
 # Copyright 2007 Logitech
-# Copyright 2021 Ralph Irving
+# Copyright 2021-2024 Ralph Irving
 ################################################################################
 #
 # These steps are required for a successful build

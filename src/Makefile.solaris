@@ -1,7 +1,7 @@
 ################################################################################
 # Squeezeplay makefile for Solaris 9/10
 # Copyright 2007 Logitech
-# Copyright 2021 Ralph Irving
+# Copyright 2021-2024 Ralph Irving
 ################################################################################
 #
 # These steps are required for a successful build
@@ -119,11 +119,11 @@ sdl-ttf: SDL_ttf-2.0.11/Makefile
 	cd SDL_ttf-2.0.11; make && make install
 
 # sdl_gfx
-SDL_gfx-2.0.15/Makefile:
-	cd SDL_gfx-2.0.15; SDL_CONFIG=${PREFIX}/bin/sdl-config ./configure ${ENABLE_PROFILING} ${USE_MMX} --prefix=${PREFIX}
+SDL_gfx-2.0.24/Makefile:
+	cd SDL_gfx-2.0.24; SDL_CONFIG=${PREFIX}/bin/sdl-config ./configure ${ENABLE_PROFILING} ${USE_MMX} --prefix=${PREFIX}
 
-sdl-gfx: SDL_gfx-2.0.15/Makefile
-	cd SDL_gfx-2.0.15; make && make install
+sdl-gfx: SDL_gfx-2.0.24/Makefile
+	cd SDL_gfx-2.0.24; make && make install
 
 
 #####
@@ -195,12 +195,20 @@ tolua++: lua
 # squeezeplay
 #
 
-.PHONY: app portaudio libogg flac libmad tremor squeezeplay squeezeplay_desktop squeezeplay_contrib freefont freefont-debian axtls rtmp
-app: portaudio libogg flac libmad tremor ${SPPRIVATE_TARGETS} squeezeplay squeezeplay_desktop squeezeplay_contrib freefont rtmp squeezeplay-tgz
+.PHONY: app portaudio fdkaac libogg flac libmad tremor squeezeplay squeezeplay_desktop squeezeplay_contrib freefont freefont-debian axtls rtmp
+app: portaudio fdkaac libogg flac libmad tremor ${SPPRIVATE_TARGETS} squeezeplay squeezeplay_desktop squeezeplay_contrib freefont rtmp squeezeplay-tgz
 
 # portaudio
 portaudio:
 	cd portaudio_v18_1; make -f Makefile.solaris install
+
+# fdkaac
+fdk-aac-2.0.3/Makefile:
+	cd fdk-aac-2.0.3; ./configure ${ENABLE_PROFILING} --prefix=${PREFIX}
+
+fdkaac: fdk-aac-2.0.3/Makefile
+	cd fdk-aac-2.0.3; make; make install
+
 
 # libogg 	 
 libogg-1.2.2/Makefile: 	 
@@ -217,7 +225,7 @@ flac: flac-1.2.1/Makefile
 	cd flac-1.2.1; make && make install
 
 #libmad
-LIBMAD_DIR=libmad-0.15.1b-10
+LIBMAD_DIR=libmad-0.15.1b-11
 
 generated/${LIBMAD_DIR}/Makefile.am:
 	mkdir -p generated
@@ -327,7 +335,7 @@ clean:
 	-cd SDL-1.2.15; make distclean; rm -f include/SDL_config.h sdl.pc;
 	-cd SDL_image-1.2.5; make distclean
 	-cd SDL_ttf-2.0.11; make distclean
-	-cd SDL_gfx-2.0.15; make distclean
+	-cd SDL_gfx-2.0.24; make distclean
 	-cd lua-5.1.5; make clean
 	-cd luasocket-2.0.2; make clean PLATFORM=solaris
 	-cd slnunicode-1.1; make clean PLATFORM=linux
@@ -340,6 +348,7 @@ clean:
 	-cd luamd5; make MYNAME=md5 clean
 	-cd tolua++-1.0.92/src/lib; rm libtolua++.*; rm *.o
 	-cd portaudio_v18_1; make -f Makefile.solaris clean
+	-cd fdk-aac-2.0.3; make distclean
 	-cd libogg-1.2.2; make distclean
 	-cd Tremor; make distclean
 	-cd flac-1.2.1; make distclean; rm src/libFLAC++/flac++.pc; find . -type f -name Makefile -exec rm {} \; ; find . -type d -name '.deps' -exec rm -rf {} \;
