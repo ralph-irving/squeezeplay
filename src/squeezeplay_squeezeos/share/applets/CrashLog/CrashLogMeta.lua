@@ -24,14 +24,16 @@ end
 
 
 function defaultSettings(meta)
-	return {}
+	return {
+		[ "sendLog" ] = false,
+	}
 end
 
 
 function registerApplet(meta)
 	meta:registerService("crashLog")
 
-	meta.prompt = true
+	meta.prompt = false
 end
 
 
