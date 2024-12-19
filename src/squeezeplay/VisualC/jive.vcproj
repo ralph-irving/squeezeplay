@@ -118,7 +118,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories=".;..\src;..\src\jiveui;&quot;..\..\SDL-1.2.15\include&quot;;&quot;..\..\SDL-1.2.15\VisualC\include&quot;;&quot;..\..\SDL_image-1.2.5&quot;;&quot;..\..\SDL_ttf-2.0.11&quot;;&quot;..\..\SDL_gfx-2.0.15&quot;;&quot;..\..\lua-5.1.5\src&quot;;&quot;..\..\tolua++-1.0.92\include&quot;;..\..\portaudio_v19\include;&quot;..\..\flac-1.2.1\include&quot;;&quot;..\..\libmad-0.15.1b&quot;;&quot;..\..\fdk-aac-2.0.1\include&quot;;..\..\"
+				AdditionalIncludeDirectories=".;..\src;..\src\jiveui;&quot;..\..\SDL-1.2.15\include&quot;;&quot;..\..\SDL-1.2.15\VisualC\include&quot;;&quot;..\..\SDL_image-1.2.5&quot;;&quot;..\..\SDL_ttf-2.0.11&quot;;&quot;..\..\SDL_gfx-2.0.15&quot;;&quot;..\..\lua-5.1.5\src&quot;;&quot;..\..\tolua++-1.0.92\include&quot;;..\..\portaudio_v19\include;&quot;..\..\flac-1.2.1\include&quot;;&quot;..\..\libmad-0.15.1b&quot;;&quot;..\..\fdk-aac-2.0.3\include&quot;;..\..\"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NO_STDIO_REDIRECT;SQUEEZEPLAY"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -137,7 +137,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib Iphlpapi.lib ..\..\fdk-aac-2.0.1\fdk-aac.dll.lib"
+				AdditionalDependencies="ws2_32.lib Iphlpapi.lib ..\..\fdk-aac-2.0.3\fdk-aac.dll.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="C:\WMSDK\WMFSDK11\lib"
 				IgnoreDefaultLibraryNames=""
