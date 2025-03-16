@@ -948,6 +948,21 @@ function manualCheckNetworkHealth(self, full_check)
 	local status = Label("subtext", self:string("STATUS_MSG", "-"))
 	popup:addWidget(status)
 
+	-- Backstop timer. Should 'Networking:checkNetwork' fail without
+	-- calling the 'continuation' callback the UI will lock up showing a
+	-- spinny. So explicitly close the popup. Allow 10 seconds.
+	local checkHasCompleted = false
+	popup:addTimer(10000, function()
+		if not checkHasCompleted then
+				log:info("check network timed out")
+				-- Update final message.
+				local msgStr = tostring(self:string("NOT_CONNECTED"))
+				setResult(self, "NETWORK_STATUS", -1, msgStr)
+				popup:hide()
+		end
+	end,
+	true) -- once only
+
 	-- Get current server
 	local server = SlimServer:getCurrentServer()
 
@@ -971,6 +986,7 @@ function manualCheckNetworkHealth(self, full_check)
 
 				-- Update final message
 				setResult(self, "NETWORK_STATUS", result, msgStr)
+				checkHasCompleted = true
 
 				popup:hide()
 			end
