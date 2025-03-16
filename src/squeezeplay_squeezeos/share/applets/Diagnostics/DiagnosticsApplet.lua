@@ -251,7 +251,8 @@ end
 
 function wlanStatus(self, iface)
 	if not iface then
-		return
+		-- flag up hardware/firmware failure
+		return "no_interface"
 	end
 
 	Task("Netstatus", self, function()
@@ -288,7 +289,8 @@ end
 
 function ethStatus(self, iface)
 	if not iface then
-		return
+		-- flag up hardware/firmware failure
+		return "no_interface"
 	end
 
 	Task("Netstatus", self, function()
@@ -425,7 +427,7 @@ function doWirelessValues(self, menu)
 
 	local wlanIface = Networking:wirelessInterface(jnt)
 
-	self:wlanStatus(wlanIface)
+	return self:wlanStatus(wlanIface) -- pass back result
 end
 
 
@@ -435,7 +437,7 @@ function doEthernetValues(self, menu)
 	local ethIface = Networking:wiredInterface(jnt)
 
 	if System:hasWiredNetworking() then
-		self:ethStatus(ethIface)
+		return self:ethStatus(ethIface) -- pass back result
 	end
 end
 
@@ -548,7 +550,17 @@ function showWirelessDiagnosticsMenu(self)
 		menu:addItem(self.labels[name])
 	end
 
-	doWirelessValues(self, menu)
+	local res = doWirelessValues(self, menu)
+
+	if res == "no_interface" then
+		-- Probable hardware/firmware error.
+		-- Show explanatory screen instead of list of 'empty' values
+		-- 'help_text' gives a better display than 'text' or 'multiline_text'
+		window:addWidget(Textarea('help_text', self:string("NO_INTERFACE_FOUND_WIFI")))
+		self:tieAndShowWindow(window)
+		return window
+	end
+
 	menu:addTimer(5000, function()
 		doWirelessValues(self, menu)
 	end)
@@ -577,7 +589,15 @@ function showEthernetDiagnosticsMenu(self)
 		menu:addItem(self.labels[name])
 	end
 
-	doEthernetValues(self, menu)
+	local res = doEthernetValues(self, menu)
+
+	if res == "no_interface" then
+		-- see 'showWirelessDiagnosticsMenu' above
+		window:addWidget(Textarea('help_text', self:string("NO_INTERFACE_FOUND_ETH")))
+		self:tieAndShowWindow(window)
+		return window
+	end
+
 	menu:addTimer(5000, function()
 		doEthernetValues(self, menu)
 	end)

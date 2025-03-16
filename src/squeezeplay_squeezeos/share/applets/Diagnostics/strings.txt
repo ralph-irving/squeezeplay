@@ -1655,3 +1655,36 @@ NETWORK_REPAIR_COMPLETE
 	RU	Ремонт сети завершен
 	SV	Nätverksreparation slutförd
 
+#
+# Added to support 'No interfaces available' fault scenario
+#
+
+NO_INTERFACE_FOUND_ETH
+	CS	Vyskytl se neočekávaný problém.\n\nNepodařilo se nám najít ethernetový hardware na tomto zařízení, a proto nemáme co ukázat.\n\nTo je vše, co víme.
+	DA	Der er opstået et uventet problem.\n\nVi har ikke været i stand til at finde Ethernet-hardwaren på denne enhed og har derfor intet at vise.\n\nDet er alt, hvad vi ved.
+	DE	Es ist ein unerwartetes Problem aufgetreten.\n\nWir konnten die Ethernet-Hardware auf diesem Gerät nicht finden und können daher nichts anzeigen.\n\nDas ist alles, was wir wissen.
+	EN	An unexpected problem has arisen.\n\nWe have been unable to find the Ethernet hardware on this device and, therefore, have nothing to show.\n\nThat's all we know.
+	ES	Ha surgido un problema inesperado.\n\nNo hemos podido encontrar el hardware Ethernet en este dispositivo y, por lo tanto, no tenemos nada que mostrar.\n\nEso es todo lo que sabemos.
+	FI	Odottamaton ongelma on ilmennyt.\n\nEmme ole löytäneet tämän laitteen Ethernet-laitteistoa, joten meillä ei ole mitään näytettävää.\n\nSe on kaikki, mitä tiedämme.
+	FR	Un problème inattendu est survenu.\n\nNous n'avons pas pu trouver le matériel Ethernet sur cet appareil et, par conséquent, nous n'avons rien à afficher.\n\nC'est tout ce que nous savons.
+	IT	Si è verificato un problema imprevisto.\n\nNon siamo riusciti a trovare l'hardware Ethernet su questo dispositivo e, pertanto, non abbiamo nulla da mostrare.\n\nQuesto è tutto ciò che sappiamo.
+	NL	Er heeft zich een onverwacht probleem voorgedaan.\n\nWe hebben de Ethernet-hardware op dit apparaat niet kunnen vinden en kunnen daarom niets laten zien.\n\nDat is alles wat we weten.
+	NO	Et uventet problem har oppstått.\n\nVi har ikke klart å finne Ethernet-maskinvaren på denne enheten og har derfor ingenting å vise.\n\nDet er alt vi vet.
+	PL	Wystąpił nieoczekiwany problem.\n\nNie udało nam się znaleźć sprzętu Ethernet w tym urządzeniu i dlatego nie mamy nic do pokazania.\n\nTo wszystko, co wiemy.
+	RU	Возникла непредвиденная проблема.\n\nНам не удалось найти оборудование Ethernet на этом устройстве, поэтому нам нечего показать.\n\nЭто все, что нам известно.
+	SV	Ett oväntat problem har uppstått.\n\nVi har inte kunnat hitta Ethernet-hårdvaran på den här enheten och har därför inget att visa.\n\nDet är allt vi vet.
+
+NO_INTERFACE_FOUND_WIFI
+	CS	Vyskytl se neočekávaný problém.\n\nNepodařilo se nám najít bezdrátový hardware na tomto zařízení, a proto nemáme co ukázat.\n\nTo je vše, co víme.
+	DA	Der er opstået et uventet problem.\n\nVi har ikke været i stand til at finde den trådløse hardware på denne enhed og har derfor ikke noget at vise.\n\nDet er alt, hvad vi ved.
+	DE	Es ist ein unerwartetes Problem aufgetreten.\n\nWir konnten die Wireless-Hardware auf diesem Gerät nicht finden und können daher nichts anzeigen.\n\nDas ist alles, was wir wissen.
+	EN	An unexpected problem has arisen.\n\nWe have been unable to find the Wireless hardware on this device and, therefore, have nothing to show.\n\nThat's all we know.
+	ES	Ha surgido un problema inesperado.\n\nNo hemos podido encontrar el hardware inalámbrico en este dispositivo y, por lo tanto, no tenemos nada que mostrar.\n\nEso es todo lo que sabemos.
+	FI	Odottamaton ongelma on ilmennyt.\n\nEmme löytäneet tämän laitteen langatonta laitteistoa, joten meillä ei ole mitään näytettävää.\n\nSe on kaikki, mitä tiedämme.
+	FR	Un problème inattendu est survenu.\n\nNous n'avons pas pu trouver le matériel sans fil sur cet appareil et, par conséquent, nous n'avons rien à afficher.\n\nC'est tout ce que nous savons.
+	IT	Si è verificato un problema imprevisto.\n\nNon siamo riusciti a trovare l'hardware wireless su questo dispositivo e, pertanto, non abbiamo nulla da mostrare.\n\nQuesto è tutto ciò che sappiamo.
+	NL	Er heeft zich een onverwacht probleem voorgedaan.\n\nWe hebben de draadloze hardware op dit apparaat niet kunnen vinden en kunnen daarom niets laten zien.\n\nDat is alles wat we weten.
+	NO	Et uventet problem har oppstått.\n\nVi har ikke klart å finne den trådløse maskinvaren på denne enheten og har derfor ingenting å vise.\n\nDet er alt vi vet.
+	PL	Wystąpił nieoczekiwany problem.\n\nNie udało nam się znaleźć sprzętu bezprzewodowego w tym urządzeniu i dlatego nie mamy nic do pokazania.\n\nTo wszystko, co wiemy.
+	RU	Возникла непредвиденная проблема.\n\nНам не удалось найти беспроводное оборудование на этом устройстве, поэтому нам нечего показать.\n\nЭто все, что нам известно.
+	SV	Ett oväntat problem har uppstått.\n\nVi har inte kunnat hitta den trådlösa hårdvaran på den här enheten och har därför inget att visa.\n\nDet är allt vi vet.
