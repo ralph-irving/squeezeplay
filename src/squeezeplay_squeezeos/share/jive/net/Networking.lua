@@ -2242,7 +2242,15 @@ function checkNetworkHealth(class, ifObj, callback, full_check, server)
 
 		-- ------------------------------------------------------------
 		-- Port 9000 test
-		callback(true, 33, server_name .. " (" .. server_port .. ")")
+		-- First, check that 'server_port' has been set to a numeric value.
+		-- If not, expect an '_assert' failure in SocketTcp.
+		-- (In some circumstances server discovery may not fully succeed,
+		--  and 'server_port' may be at its initial value of 'false').
+		callback(true, 33, server_name .. " (" .. tostring(server_port) .. ")")
+		if not tonumber(server_port) then
+				callback(false, -37, server_name .. " ( port not defined )")
+				return
+		end
 
 		local portOk = false
 		local tcp = SocketTcp(jnt, server_ip, server_port, "porttest")
