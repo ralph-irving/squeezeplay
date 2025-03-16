@@ -167,88 +167,87 @@ end
 function _connectionType(self)
 	log:debug('_connectionType')
 
-	assert(self.wlanIface or self.ethIface)
+	-- This 'assert' is no longer needed, the case is handled below.
+	-- assert(self.wlanIface or self.ethIface)
 
--- fm+
-	-- Shortcut to use Ethernet immediately if available and link is up
+	-- Shortcut to use Ethernet immediately if available and link is up.
+	-- If link is not up the Task will fall back to wireless.
+	-- Remark: 't_wpaStatus()' should only be accessed in a task.
 	if self.ethIface then
 		Task("halfDuplexBugVerification", self,
 			function()
-				local pingOK = false
 				local status = self.ethIface:t_wpaStatus()
-				if status.link and status.ip_dns then
-					local window = Popup("waiting_popup")
-					window:setAllowScreensaver(false)
-
-					window:addWidget(Icon("icon_connecting"))
-					window:addWidget(Label("text", self:string("NETWORK_ETHERNET_CHECK")))
-					self:tieAndShowWindow(window)
-
-					-- First ping dns server to prevent long
-					--  delays while trying to resolve mysb.com
-					if self.ethIface:pingServer(status.ip_dns) then
-						-- Then ping mysb.com
-						pingOK = self.ethIface:pingServer(jnt:getSNHostname())
-					end
-				end
-
-				if pingOK then
+				if status.link then
 					return _halfDuplexBugVerification(self, self.ethIface)
-				else
-					-- Ethernet available but no link or ping failed - do a wireless scan
+
+				elseif self.wlanIface then
+					-- Ethernet available but no link - do a wireless scan.
+					-- Remark: '_networkScan' would cause this Task to crash
+					-- if 'self.wlanIface' is nil. (Hardware/firmware
+					-- malfunction could trigger this).
 					return _networkScan(self, self.wlanIface)
+
+				else
+					-- Fall back. There is no wireless interface available, so
+					-- we can only use Ethernet. User will be prompted to plug
+					-- in cable if needed.
+					
+					-- Remark: This is likely to arise of there is a Hardware,
+					-- or perhaps firmware, malfunction.
+
+					-- Remark: Baby/Radio hardware versions < 5 could fail
+					-- '_halfDuplexBugVerification'. If so, a menu containing
+					-- the option to connect to wireless will be offered.
+					-- That will just 'bump' because 'self.wlanIface' is nil.
+					-- This Task will not crash.
+
+					log:debug('Wireless interface not found - forcing ethernet connection')
+
+					return _halfDuplexBugVerification(self, self.ethIface)
 				end
 			end
 		):addTask()
-	else
-		-- Only wireless available - do a wireless scan
-		return _networkScan(self, self.wlanIface)
-	end
--- fm-
 
+		return
 
---[[
-	-- short cut if only one interface is available
-	if not self.wlanIface then
-		-- Only ethernet available
-		return _networkScan(self, self.ethIface)
-	elseif not self.ethIface then
-		-- Only wireless available
+	-- Only wireless available - do a wireless scan.
+	elseif self.wlanIface then
+
+		-- Remark: This is the path a Jive/Controller should take, it has no
+		-- Ethernet.
 		return _networkScan(self, self.wlanIface)
+
 	end
 
-	-- ask the user to choose
-	local window = Window("text_list", self:string("NETWORK_CONNECTION_TYPE"), "setup")
+	-- Disaster. Hardware/firmware malfunction - no interfaces available.
+	-- Present a window with an explanatory message and a single 'Continue'
+	-- option which will complete the network setup flow or network settings
+	-- flow.
+
+	-- Remark: Triggered by: Jive/Controller without a Wireless interface,
+	-- or Radio/Touch without both Ethernet and Wireless interfaces.
+
+	log:debug('No network interfaces found, showing bail out menu')
+
+	local window = Window("error", self:string('NETWORK_NO_INTERFACE_FOUND'), 'setuptitle')
 	window:setAllowScreensaver(false)
+	window:setButtonAction("rbutton", nil)
 
-	local connectionMenu = SimpleMenu("menu")
-
-	connectionMenu:addItem({
-		iconStyle = 'wlan',
-		text = (self:string("NETWORK_CONNECTION_TYPE_WIRELESS")),
-		sound = "WINDOWSHOW",
-		callback = function()
-			_networkScan(self, self.wlanIface)
-		end,
-		weight = 1
-	})
-	
-	connectionMenu:addItem({
-		iconStyle = 'wired',
-		text = (self:string("NETWORK_CONNECTION_TYPE_WIRED")),
-		sound = "WINDOWSHOW",
-		callback = function()
-			_networkScan(self, self.ethIface)
-		end,
-		weight = 2
+	local menu = SimpleMenu("menu", {
+		{
+			text = self:string("NETWORK_NO_INTERFACE_CONTINUE"),
+			sound = "WINDOWSHOW",
+			callback = function()
+				self.setupNext()
+			end
+		},
 	})
 
-	window:addWidget(connectionMenu)
+	local helpText = self:string("NETWORK_NO_INTERFACE_HELP_TXT")
+	menu:setHeaderWidget(Textarea("help_text", helpText))
 
-	_helpAction(self, window, "NETWORK_CONNECTION_HELP", "NETWORK_CONNECTION_HELP_BODY", connectionMenu)
-
+	window:addWidget(menu)
 	self:tieAndShowWindow(window)
---]]
 end
 
 

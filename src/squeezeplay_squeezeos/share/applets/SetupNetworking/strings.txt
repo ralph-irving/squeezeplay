@@ -574,9 +574,6 @@ NETWORK_ETHERNET
 	RU	Ethernet
 	SV	Ethernet
 
-NETWORK_ETHERNET_CHECK
-	EN	Verify Ethernet Connection
-
 NETWORK_CONNECTED_TO
 	CS	Připojeno k
 	DA	Afspilleren er tilsluttet
@@ -1581,4 +1578,55 @@ NETWORK_ENTER_SSID_HINT
 	PL	Upewnij się, czy sieć działa i znajduje się w zasięgu. Jeśli sieć jest ukryta, należy ręcznie wprowadzić nazwę sieci.
 	RU	Убедитесь, что сеть работает и находится в диапазоне доступа. Если сеть скрыта, необходимо ввести имя сети вручную.
 	SV	Kontrollera att nätverket är i gång och att det är inom räckvidden. Om nätverket är dolt måste du ange namnet manuellt.
+
+
+#
+# Added to support 'No interfaces available' fault scenario
+#
+
+NETWORK_NO_INTERFACE_FOUND
+	CS	Žádný síťový hardware
+	DA	Ingen netværkshardware
+	DE	Keine Netzwerkhardware
+	EN	No network hardware
+	ES	Sin hardware de red
+	FI	Ei verkkolaitteistoa
+	FR	Pas de matériel réseau
+	IT	Nessun hardware di rete
+	NL	Geen netwerkhardware
+	NO	Ingen nettverksmaskinvare
+	PL	Brak sprzętu sieciowego
+	RU	Нет сетевого оборудования
+	SV	Ingen nätverkshårdvara
+
+NETWORK_NO_INTERFACE_CONTINUE
+	CS	Pokračovat
+	DA	Fortsætte
+	DE	Weitermachen
+	EN	Continue
+	ES	Continuar
+	FI	Jatkaa
+	FR	Continuer
+	IT	Continuare
+	NL	Doorgaan
+	NO	Fortsette
+	PL	Kontynuować
+	RU	Продолжать
+	SV	Fortsätta
+
+NETWORK_NO_INTERFACE_HELP_TXT
+	CS	Vyskytl se neočekávaný problém.\nNepodařilo se nám najít síťový hardware na tomto zařízení, a proto nemůžeme vybrat síť, ke které se připojíme.
+	DA	Der er opstået et uventet problem.\nVi har ikke været i stand til at finde netværkshardwaren på denne enhed, og vi kan derfor ikke vælge et netværk at oprette forbindelse til.
+	DE	Es ist ein unerwartetes Problem aufgetreten.\nWir konnten die Netzwerkhardware auf diesem Gerät nicht finden und können daher kein Netzwerk für die Verbindung auswählen.
+	EN	An unexpected problem has arisen.\nWe have been unable to find the network hardware on this device, and, therefore, we cannot choose a network to connect to.
+	ES	Ha surgido un problema inesperado.\nNo hemos podido encontrar el hardware de red en este dispositivo y, por lo tanto, no podemos elegir una red para conectarnos.
+	FI	On ilmennyt odottamaton ongelma.\nEmme löytäneet tämän laitteen verkkolaitteistoa, emmekä siksi voi valita verkkoa, johon muodostaa yhteyden.
+	FR	Un problème inattendu est survenu.\nNous n'avons pas réussi à trouver le matériel réseau sur cet appareil et, par conséquent, nous ne pouvons pas choisir un réseau auquel nous connecter.
+	IT	Si è verificato un problema imprevisto.\nNon siamo riusciti a trovare l'hardware di rete su questo dispositivo e, pertanto, non possiamo scegliere una rete a cui connetterci.
+	NL	Er heeft zich een onverwacht probleem voorgedaan.\nWe hebben de netwerkhardware op dit apparaat niet kunnen vinden en kunnen daarom geen netwerk kiezen om verbinding mee te maken.
+	NO	Et uventet problem har oppstått.\nVi har ikke klart å finne nettverksmaskinvaren på denne enheten, og derfor kan vi ikke velge et nettverk å koble til.
+	PL	Wystąpił nieoczekiwany problem.\nNie udało nam się znaleźć sprzętu sieciowego na tym urządzeniu i dlatego nie możemy wybrać sieci, z którą chcemy się połączyć.
+	RU	Возникла непредвиденная проблема.\nНам не удалось найти сетевое оборудование на этом устройстве, поэтому мы не можем выбрать сеть для подключения.
+	SV	Ett oväntat problem har uppstått.\nVi har inte kunnat hitta nätverkshårdvaran på den här enheten, och därför kan vi inte välja ett nätverk att ansluta till.
+
 
