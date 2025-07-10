@@ -807,7 +807,6 @@ void QZ_PumpEvents (_THIS)
     NSDate *distantPast;
     NSEvent *event;
     NSRect winRect;
-    NSAutoreleasePool *pool;
 
     if (!SDL_VideoSurface)
         return;  /* don't do anything if there's no screen surface. */
@@ -823,7 +822,6 @@ void QZ_PumpEvents (_THIS)
         }
     }
 
-    pool = [ [ NSAutoreleasePool alloc ] init ];
     distantPast = [ NSDate distantPast ];
 
     winRect = NSMakeRect (0, 0, SDL_VideoSurface->w, SDL_VideoSurface->h);
@@ -833,6 +831,7 @@ void QZ_PumpEvents (_THIS)
     dy = 0;
     
     do {
+        NSAutoreleasePool *pool = [ [ NSAutoreleasePool alloc ] init ];
     
         /* Poll for an event. This will not block */
         event = [ NSApp nextEventMatchingMask:NSAnyEventMask
@@ -1050,13 +1049,12 @@ void QZ_PumpEvents (_THIS)
                     [ NSApp sendEvent:event ];
             }
         }
+        [ pool release ];
     } while (event != nil);
     
     /* handle accumulated mouse moved events */
     if (dx != 0 || dy != 0)
         SDL_PrivateMouseMotion (0, 1, dx, dy);
-    
-    [ pool release ];
 }
 
 void QZ_UpdateMouse (_THIS)
