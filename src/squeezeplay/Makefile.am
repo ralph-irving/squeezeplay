@@ -49,6 +49,7 @@ OSX_STATIC_LIBS = `$(SDL_CONFIG) --static-libs` \
 	$(OSX_LIB_DIR)/libpng.a \
 	$(OSX_LIB_DIR)/libjpeg.a \
 	$(OSX_LIB_DIR)/libfdk-aac.a \
+	$(OSX_LIB_DIR)/libfribidi.a \
 	$(JIVE_DEPENDENCIES_LIB_DIR)/libaudio.a $(JIVE_DEPENDENCIES_LIB_DIR)/libnet.a $(JIVE_DEPENDENCIES_LIB_DIR)/libui.a $(JIVE_DEPENDENCIES_LIB_DIR)/libdecode.a
 
 SqueezePlay: $(jive_OBJECTS) $(jive_DEPENDENCIES)
@@ -185,7 +186,7 @@ libui_la_SOURCES = \
 	src/ui/jive_window.c \
 	src/ui/lua_jiveui.c
 
-libui_la_LIBADD = -ltolua++ -llua -lSDL_image -lSDL_ttf -lSDL_gfx -lSDL
+libui_la_LIBADD = -ltolua++ -llua -lSDL_image -lSDL_ttf -lSDL_gfx -lSDL -lfribidi
 
 libaudio_la_CFLAGS = -DRESAMPLE_EFFECTS -DOUTSIDE_SPEEX -DFIXED_POINT -DRANDOM_PREFIX=jive -DEXPORT=""
 
