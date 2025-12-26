@@ -109,11 +109,14 @@ function showMainWindow(self)
 
 	self.window:addWidget(Textarea("help_text", tostring(self:string('SETUPNETTEST_TESTINGTO')) .. ' ' .. self.player:getName() .. "\n" .. tostring(self:string('SETUPNETTEST_INFO'))))
 
+	-- No screensaver. Title bar right hand button is 'help'.
 	self.window:setAllowScreensaver(false)
+	self.window:setButtonAction("rbutton", "help")
 
 	self.window:focusWidget(nil)
 	self.window:addActionListener("add", self, _event_handler)
 	self.window:addActionListener("go", self, _event_handler)
+	self.window:addActionListener("help", self, _event_handler)
 	self.window:addListener(EVENT_SCROLL | EVENT_IR_ALL,
 		function(event)
 			return _event_handler(self, event)
@@ -153,9 +156,12 @@ function _event_handler(self, event)
 		local action = event:getAction()
 
 		if action == "add" then
-			self:startTest(self.rate)
+			-- start test at last running rate
+			if self.rate then
+				self:startTest(self.rate)
+			end
 		end
-		if action == "go" then
+		if action == "go" or action == "help" then
 			self:showHelpWindow()
 		end
 
@@ -174,6 +180,10 @@ end
 function showHelpWindow(self)
 	local window = Window("text_list", self:string('SETUPNETTEST_HELPTITLE'))
 	local help = Textarea("text", self:string('SETUPNETTEST_HELP'))
+
+	-- No screensaver & title bar right hand button.
+	window:setAllowScreensaver(false)
+	window:setButtonAction("rbutton", nil)
 
 	window:addWidget(help)
 	
@@ -216,6 +226,13 @@ end
 
 -- request status
 function requestStatus(self, sink)
+
+	-- do we need the list of rates ?
+	local query = ''
+	if self.rates == nil or #self.rates == 0 then
+		query = 'rates'
+	end
+
 	self.server:userRequest(
 		function(chunk, err)
 			if err then
@@ -225,7 +242,7 @@ function requestStatus(self, sink)
 			end
 		end,
 		self.player:getId(),
-		{ 'nettest', self.rates and nil or 'rates' }
+		{ 'nettest', query }
 	)
 end
 
@@ -239,24 +256,28 @@ function response(self, data)
 		self.index = {}
 		for _,entry in pairs(data.rates_loop) do
 			for k, v in pairs(entry) do
-				self.rates[index] = v
-				self.index[v] = index
-				index = index + 1
+				if tonumber(v) then -- self.rates & self.index tables *must* be numeric
+					self.rates[index] = tonumber(v)
+					self.index[tonumber(v)] = index
+					index = index + 1
+				end
 			end
 		end
-		self.default = data.default
+		self.default = tonumber(data.default)
 	end
 
 	if data.state == 'running' then
 		-- update display for current test
-		self.rate = data.rate
+		self.rate = tonumber(data.rate)
 		self.window:setTitle(tostring(self:string('SETUPNETTEST_TESTING')) .. ' ' .. data.rate .. " kbps")
 		self:graph1Update(data.inst)
 		self:graph2Update(data.distrib)
 		Framework:reDraw(nil)
 
-	elseif self.default then
+	-- only autostart once, in case of failure 
+	elseif self.default and not self.autostarted then
 		self:startTest(self.default)
+		self.autostarted = true
 	end
 end
 
