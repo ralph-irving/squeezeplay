@@ -1212,6 +1212,9 @@ function fetchArtwork(self, iconId, icon, size, imgFormat)
 			else
 				url = 'http://' .. jnt:getSNHostname() .. '/public/imageproxy?w=' .. sizeW .. '&h=' .. sizeH .. '&f=' .. (imgFormat or '') .. '&u=' .. string.urlEncode(iconId)
 			end
+		-- contributor artwork doesn't come with an extension
+		elseif string.find(iconId, "^contributor/%w+/image") then
+			url = iconId .. resizeFrag
 		else
 			url = string.gsub(iconId, "(.+)(%.%a+)", "%1" .. resizeFrag .. "%2")
 
