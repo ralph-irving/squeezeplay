@@ -1,5 +1,5 @@
 #define SpAppName "SqueezePlay"
-#define SpAppVerName "SqueezePlay 9.0.0r1559"
+#define SpAppVerName "SqueezePlay 9.0.0r1560"
 #define SpAppPublisher "Ralph Irving"
 #define SpAppURL "https://lms-community.github.io/"
 #define SpAppExeName "squeezeplay.exe"
