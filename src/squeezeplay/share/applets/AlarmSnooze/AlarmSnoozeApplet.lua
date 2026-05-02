@@ -414,6 +414,26 @@ function _alarmOff(self, stopStream)
 end
 
 
+function _alarmDismiss(self)
+	log:warn("*** Alarm: _alarmDismiss: dismissing alarm popup, leaving audio playing")
+
+	self:_silenceFallbackAlarm()
+	self.alarmInProgress = nil
+	self:_stopSnoozeTimer()
+	self:_stopDecodeStatePoller()
+
+	if self.alarmWindow then
+		self.alarmWindow:playSound("WINDOWHIDE")
+		self:_hideAlarmWindow()
+	end
+
+	-- Inform server: stop alarm state but leave audio and player state untouched
+	if self.localPlayer:isConnected() then
+		self.localPlayer:stopAlarm(true)
+	end
+end
+
+
 function soundFallbackAlarm(self)
 	log:warn("*** Alarm: soundFallbackAlarm()")
 	self.alarmVolume = 43 -- forget fade in stuff, just do it - it's an alarm!
@@ -676,6 +696,13 @@ function openAlarmWindow(self)
 			self:_alarmOff(true)
 			end,
 	})	
+	menu:addItem({
+		text = self:string("ALARM_SNOOZE_DISMISS"),
+		sound = "WINDOWHIDE",
+		callback = function()
+			self:_alarmDismiss()
+			end,
+	})
 	menu:setSelectedIndex(1)
 
 	local cancelAction = function()
