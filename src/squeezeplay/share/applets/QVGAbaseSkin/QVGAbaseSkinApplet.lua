@@ -1794,7 +1794,7 @@ function skin(self, s, reload, useDefaultSize)
 			h = c.CM_MENU_HEIGHT * 5,
 			w = screenWidth - 34,
 			x = 7,
-			y = 53,
+			y = 12,
 			border = 0,
 			itemHeight = c.CM_MENU_HEIGHT,
 			position = LAYOUT_NORTH,
