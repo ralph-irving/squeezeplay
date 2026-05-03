@@ -696,13 +696,15 @@ function openAlarmWindow(self)
 			self:_alarmOff(true)
 			end,
 	})	
-	menu:addItem({
-		text = self:string("ALARM_SNOOZE_DISMISS"),
-		sound = "WINDOWHIDE",
-		callback = function()
-			self:_alarmDismiss()
-			end,
-	})
+	if self.server and self.server:isMoreRecent(self.server:getVersion(), '9.1.0') then
+		menu:addItem({
+			text = self:string("ALARM_SNOOZE_DISMISS"),
+			sound = "WINDOWHIDE",
+			callback = function()
+				self:_alarmDismiss()
+				end,
+		})
+	end
 	menu:setSelectedIndex(1)
 
 	local cancelAction = function()
