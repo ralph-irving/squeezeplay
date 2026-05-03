@@ -63,9 +63,9 @@ static char *xv_extension_name = XvName;
 #define XvCheckExtension(dpy, i, val) \
   XextCheckExtension(dpy, i, xv_extension_name, val)
 
-static char *xv_error_string();
-static int xv_close_display();
-static Bool xv_wire_to_event();
+static char *xv_error_string(Display *dpy, int code, XExtCodes *codes, char *buf, int n);
+static int xv_close_display(Display *dpy, XExtCodes *codes);
+static Bool xv_wire_to_event(Display *dpy, XEvent *host, xEvent *wire);
 
 static XExtensionHooks xv_extension_hooks = {
     NULL,                               /* create_gc */

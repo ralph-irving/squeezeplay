@@ -8,9 +8,7 @@
 #define JIVE_TYPES_H
 
 /* boolean type */
-typedef unsigned int bool;
-#define true 1
-#define false !true
+#include <stdbool.h>
 
 /* ip3k type definitions */
 #define bool_t bool
