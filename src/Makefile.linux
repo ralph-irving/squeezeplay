@@ -259,10 +259,10 @@ squeezeplay/Makefile:
 	cd squeezeplay; SDL_CONFIG=${SDL_CONFIG} ./configure ${ENABLE_SPPRIVATE} ${ENABLE_PROFILING} --prefix=${PREFIX}
 
 squeezeplay: squeezeplay/Makefile
-	patch -p1 -i squeezeplay-lua-cjson.patch
+	patch --forward -p1 -i squeezeplay-lua-cjson.patch || true
 	export PATH=$(BUILD_TOP)/bin:$(PATH); \
 	cd squeezeplay; make && make install
-	patch -p1 -R -i squeezeplay-lua-cjson.patch
+	patch --forward -R -p1 -i squeezeplay-lua-cjson.patch || true
 
 squeezeplay_desktop/Makefile:
 	cd squeezeplay_desktop; SDL_CONFIG=${SDL_CONFIG} ./configure --host=${HOST} --target=${TARGET} --prefix=${PREFIX}
