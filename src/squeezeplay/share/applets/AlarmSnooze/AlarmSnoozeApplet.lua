@@ -696,7 +696,7 @@ function openAlarmWindow(self)
 			self:_alarmOff(true)
 			end,
 	})	
-	if self.server and self.server:isMoreRecent(self.server:getVersion(), '9.1.0') then
+	if self.server and self.server:getVersion() and self.server:isMoreRecent(self.server:getVersion(), '9.1.0') then
 		menu:addItem({
 			text = self:string("ALARM_SNOOZE_DISMISS"),
 			sound = "WINDOWHIDE",
