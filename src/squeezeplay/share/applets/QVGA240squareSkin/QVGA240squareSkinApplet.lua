@@ -156,7 +156,6 @@ function skin(self, s, reload, useDefaultSize)
 	s.track_list.menu.scrollbar = _uses(s.scrollbar, {
 		h = 41 * 4 - 8,
 	})
-	s.alarm_time.font = _font(72)
 	-- software update window
 	s.update_popup = _uses(s.popup)
 

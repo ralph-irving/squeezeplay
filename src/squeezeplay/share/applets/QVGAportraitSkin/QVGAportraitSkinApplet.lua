@@ -161,8 +161,6 @@ function skin(self, s, reload, useDefaultSize)
 	s.icon_battery_low.padding         = { 0, 42, 0, 0 }
 	s.waiting_popup.text.padding       = { 0, 42, 0, 0 }
 	s.waiting_popup.subtext.padding    = { 0, 0, 0, 46 }
-	s.alarm_time.font = _font(72)
-
 	s.toast_popup_mixed.text.font = _boldfont(14)
 	s.toast_popup_mixed.subtext.font = _boldfont(14)
 

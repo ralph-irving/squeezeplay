@@ -1768,7 +1768,7 @@ function skin(self, s, reload, useDefaultSize)
 		fg = c.TEXT_COLOR,
 		sh = c.TEXT_SH_COLOR,
 		align = "center",
-		font = _boldfont(92),
+		font = _boldfont(72),
 	}
 	s.preview_text = _uses(s.alarm_time, {
 		font = _boldfont(c.TITLE_FONT_SIZE),
@@ -1794,9 +1794,9 @@ function skin(self, s, reload, useDefaultSize)
 			h = c.CM_MENU_HEIGHT * 5,
 			w = screenWidth - 34,
 			x = 7,
-			y = 18,
+			y = 22,
 			border = 0,
-			itemHeight = c.CM_MENU_HEIGHT,
+			itemHeight = 39,
 			position = LAYOUT_NORTH,
 			scrollbar = { 
 				h = c.CM_MENU_HEIGHT * 5 - 8,
