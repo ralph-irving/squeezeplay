@@ -36,6 +36,7 @@ ALARM_SNOOZE_SNOOZE
 
 ALARM_SNOOZE_DISMISS
 # SLT: menu item to close the alarm popup without stopping playback
+	DE	Verwerfen
 	EN	Dismiss
 	NL	Sluiten
 
