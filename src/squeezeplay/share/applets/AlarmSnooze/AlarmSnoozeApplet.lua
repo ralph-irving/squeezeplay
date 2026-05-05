@@ -125,7 +125,8 @@ function init(self, ...)
 	)
 
 	self.failedAudioTicker = 0
-	self.decodeStatePoller = Timer(5000, 
+	self.goodAudioTicker = 0
+	self.decodeStatePoller = Timer(5000,
 		function ()
 			self:_pollDecodeState()
 		end,
@@ -452,16 +453,25 @@ function _pollDecodeState(self)
 
 	if self.alarmInProgress and status.audioState ~= 1 then
 		self.failedAudioTicker = self.failedAudioTicker + 1
+		self.goodAudioTicker = 0
 		log:warn("*** Alarm: Audio failed! failedAudioTicker: ", self.failedAudioTicker)
 	else
-		self.failedAudioTicker = 0
-		log:warn("*** Alarm: Audio ok -> reset failedAudioTicker: ", self.failedAudioTicker)
+		self.goodAudioTicker = (self.goodAudioTicker or 0) + 1
+		-- Only reset the failure counter after sustained audio (3 consecutive good polls = 15 seconds).
+		-- A single good poll is not enough: stream plugins may briefly retry after failure,
+		-- causing a transient audioState=1 that would otherwise reset the counter and
+		-- prevent the fallback alarm from ever firing.
+		if self.goodAudioTicker >= 3 then
+			self.failedAudioTicker = 0
+		end
+		log:warn("*** Alarm: Audio ok -> goodAudioTicker: ", self.goodAudioTicker, " failedAudioTicker: ", self.failedAudioTicker)
 	end
 
 	if self.failedAudioTicker > 12 then
 		log:warn("*** Alarm: Decode state bad! failedAudioTicker: ", self.failedAudioTicker, " Trigger fallback alarm!")
 
 		self.failedAudioTicker = 0
+		self.goodAudioTicker = 0
 		return self:soundFallbackAlarm()
 	end
 end
