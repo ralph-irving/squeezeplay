@@ -323,8 +323,8 @@ function volume(self, vol, send)
 end
 
 
-function _volumeNoIncrement(self, vol, send)
-	self:volumeLocal(vol)
+function _volumeNoIncrement(self, vol, send, stateOnly)
+	self:volumeLocal(vol, nil, stateOnly)
 	return Player.volume(self, vol, send)
 end
 
