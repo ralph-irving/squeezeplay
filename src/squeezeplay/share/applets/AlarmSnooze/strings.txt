@@ -34,6 +34,12 @@ ALARM_SNOOZE_SNOOZE
 	RU	Повтор сигнала
 	SV	Snooze-funktion
 
+ALARM_SNOOZE_DISMISS
+# SLT: menu item to close the alarm popup without stopping playback
+	DE	Verwerfen
+	EN	Dismiss
+	NL	Sluiten
+
 ALARM_SNOOZE_TURN_OFF_ALARM
 	CS	Vypnout budík
 	DA	Sluk vækkeuret
