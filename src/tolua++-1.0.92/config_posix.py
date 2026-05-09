@@ -16,7 +16,7 @@ CCFLAGS = ['-O2', '-ansi', '-Wall']
 prefix = '/usr/local'
 
 # libraries
-LIBS = ['lua', 'lualib', 'm']
+LIBS = ['lua', 'm']
 
 
 

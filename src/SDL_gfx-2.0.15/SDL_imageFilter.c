@@ -16,6 +16,11 @@
 
 #include "SDL_imageFilter.h"
 
+/* pusha/popa do not exist in 64-bit mode; disable MMX inline asm there */
+#if defined(__x86_64__) || defined(_M_X64)
+#undef USE_MMX
+#endif
+
 #define swap_32(x) (((x) >> 24) | (((x) & 0x00ff0000) >> 8)  | (((x) & 0x0000ff00) << 8)  | ((x) << 24))
 
 /* ------ Static variables ----- */

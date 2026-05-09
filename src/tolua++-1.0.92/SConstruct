@@ -59,8 +59,8 @@ def pkg_scan_dep(self, target, source):
 	## TODO: detectar si el archivo existe antes de abrirlo asi nomas
 	pkg = open(source, "rt")
 
-	for linea in pkg.xreadlines():
-		dep = re.search("^[\t\w]*\$[cphl]file\s*\"([^\"]+)\"", linea)
+	for linea in pkg:
+		dep = re.search(r"^[\t\w]*\$[cphl]file\s*\"([^\"]+)\"", linea)
 		if dep:
 			self.Depends(target, '#' + dep.groups()[0]);
 
