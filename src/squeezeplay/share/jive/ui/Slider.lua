@@ -285,8 +285,19 @@ function _eventHandler(self, event)
 						--no need to move initially, since stuck on pill
 						return EVENT_CONSUME
 					else
-						--only drag if inside pill 
-						return EVENT_CONSUME
+						-- downward-only quick jump in volume bar grey track
+						local potentialPercent = x / w
+						local currentPercent = self.range > 0 and (self.size / self.range) or 0
+
+						if potentialPercent < currentPercent then
+							-- allow the jump to lower the volume
+							self:_setSlider(potentialPercent)
+							-- do not set pillOffset so we don't start a drag from the grey track
+							return EVENT_CONSUME
+						else
+							-- ignore volume increases to prevent accidental speaker damage
+							return EVENT_CONSUME
+						end
 					end
 				end
 				x = x - self.pillOffset
