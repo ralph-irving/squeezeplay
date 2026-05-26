@@ -418,7 +418,11 @@ end
 function _alarmDismiss(self)
 	log:warn("*** Alarm: _alarmDismiss: dismissing alarm popup, leaving audio playing")
 
-	self:_silenceFallbackAlarm()
+	-- Don't call _silenceFallbackAlarm: it issues localPlayer:stop() which
+	-- kills the running alarm playlist. Only cancel the fallback timeout.
+	if self.fallbackAlarmTimeout and self.fallbackAlarmTimeout:isRunning() then
+		self.fallbackAlarmTimeout:stop()
+	end
 	self.alarmInProgress = nil
 	self:_stopSnoozeTimer()
 	self:_stopDecodeStatePoller()
