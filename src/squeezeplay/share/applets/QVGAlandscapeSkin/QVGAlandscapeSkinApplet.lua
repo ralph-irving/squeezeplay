@@ -284,29 +284,62 @@ function skin(self, s, reload, useDefaultSize)
 		npprogress = {
 			zOrder = 10,
 			position = LAYOUT_NORTH,
-			padding = { 0, 0, 0, 0 },
+			padding = { 10, 0, 10, 0 },
 			border = { 0, 59, 0, 0 },
 			w = WH_FILL,
-			order = { "slider" },
+			order = { 'elapsed', 'slider', 'remain' },
+			elapsed = {
+				zOrder = 10,
+				font = _boldfont(12),
+				fg = { 0xb3, 0xb3, 0xb3 },
+			},
+			remain = {
+				zOrder = 10,
+				font = _boldfont(12),
+				fg = { 0xb3, 0xb3, 0xb3 },
+			},
+			elapsedSmall = {
+				zOrder = 10,
+				font = _boldfont(9),
+				fg = { 0xb3, 0xb3, 0xb3 },
+			},
+			remainSmall = {
+				zOrder = 10,
+				font = _boldfont(9),
+				fg = { 0xb3, 0xb3, 0xb3 },
+			},
 			npprogressB = {
-				w = screenWidth,
+				w = WH_FILL,
 				align = 'center',
+				border = { 10, 0, 10, 0 },
 				horizontal = 1,
 				bgImg = s.img.songProgressBackground,
 				img = s.img.songProgressBar,
 				h = 15,
-				padding = { 0, 0, 0, 15 },
-			}
+			},
 		},
 	
 		-- special style for when there shouldn't be a progress bar (e.g., internet radio streams)
 		npprogressNB = {
-			hidden = 1,
+			zOrder = 10,
+			position = LAYOUT_NORTH,
+			padding = { 10, 0, 0, 0 },
+			border = { 0, 59, 0, 0 },
+			align = 'center',
+			w = WH_FILL,
+			order = { 'elapsed' },
+			elapsed = {
+				w = WH_FILL,
+				align = 'left',
+				font = _boldfont(12),
+				fg = { 0xb3, 0xb3, 0xb3 },
+			},
+
 		},
 	
 	})
 
-        s.nowplaying.npprogress.npprogressB_disabled = _uses(s.nowplaying.npprogress.npprogressB)
+	s.nowplaying.npprogressNB.elapsedSmall = s.nowplaying.npprogressNB.elapsed
 
 	--FIXME: Bug 15030, need way to cycle through NP views on Baby/Controller
 	s.nowplaying_small_art = _uses(s.nowplaying, {
