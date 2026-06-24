@@ -329,7 +329,8 @@ static int jiveL_initSDL(lua_State *L) {
 		jive_surface_flip(srf);
 		LOG_INFO(log_ui_draw, "Splash %s %dx%d Screen %dx%d", splashfile,splash_w,splash_h,screen_w,screen_h);
 #if defined(__APPLE__) && defined(__MACH__)
-		SDL_PumpEvents(); // pump event queue to update screen
+		SDL_Event evt;
+		while (SDL_PollEvent(&evt)) {} // pump event queue to update screen
 #endif
 	}
 
