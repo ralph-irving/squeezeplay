@@ -337,7 +337,7 @@ SQUEEZEBOX_PROBLEM_HELP_GENERIC
 SQUEEZEBOX_PROBLEM_HELP
 	CS	Připojení k %s nebylo možné. Ujistěte se, že je váš počítač zapnutý a připojený k místní síti, a že je Lyrion Music Server spuštěn.
 	DA	Der kunne ikke oprettes forbindelse til %s. Kontroller at computeren er tændt, at den er sluttet til det lokale netværk, og at Lyrion Music Server kører.
-	DE	Verbindung mit %s nicht möglich. Vergewissern Sie sich, dass Ihr Computer eingeschaltet ist und mit dem lokalen Netzwerk verbunden ist. Stellen Sie sicher, das Lyrion Music Server ausgeführt wird.
+	DE	Verbindung mit %s nicht möglich. Vergewissern Sie sich, dass Ihr Computer eingeschaltet ist und mit dem lokalen Netzwerk verbunden ist. Stellen Sie sicher, dass der Lyrion Music Server läuft.
 	EN	We couldn't connect to %s.  Make sure your computer is turned on and connected to your local network, and that Lyrion Music Server is currently running.
 	ES	No se ha podido establecer conexión con %s. Asegúrese de que el ordenador está encendido y conectado a la red local, y de que Lyrion Music Server se está ejecutando en este momento.
 	FI	Yhteyttä kohteeseen %s ei voitu muodostaa. Tarkista, että tietokone on päällä ja että se on yhdistetty paikallisverkkoon. Tarkista myös, että Lyrion Music Server on käynnissä.
@@ -367,7 +367,7 @@ SQUEEZECENTER_VERSION
 SQUEEZECENTER_VERSION_HELP
 	CS	%s vyžaduje aktualizaci na novější verzi Lyrion Music Server.\n\nPro stažení nejnovější verze navštivte laskavě lms-community.github.io/lms-server-repository.
 	DA	%s skal opdateres til en nyere version af Lyrion Music Server.\n\nGå til lms-community.github.io/lms-server-repository, og hent den nyeste version.
-	DE	%s muss auf eine neue Version von Lyrion Music Server aktualisiert werden.\n\nLaden Sie unter lms-community.github.io/lms-server-repository die neueste Version herunter.
+	DE	%s muss auf eine neue Version des Lyrion Music Servers aktualisiert werden.\n\nLaden Sie unter lms-community.github.io/lms-server-repository die neueste Version herunter.
 	EN	%s needs to be updated to a newer version of the Lyrion Music Server.\n\nPlease visit lms-community.github.io/lms-server-repository to download the latest version.
 	ES	%s debe actualizarse a una versión nueva de Lyrion Music Server.\n\nVisite lms-community.github.io/lms-server-repository para descargar la versión más reciente.
 	FI	%s täytyy päivittää Lyrion Music Serverin uudempaan versioon.\n\nLataa uusin versio osoitteesta lms-community.github.io/lms-server-repository.
