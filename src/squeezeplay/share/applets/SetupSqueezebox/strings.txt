@@ -81,7 +81,7 @@ SQUEEZEBOX_ETHERNET
 SQUEEZEBOX_HELP
 	CS	Vyberte přijímač Squeezebox, který chcete nastavit. Jestliže není vidět, stiskněte a přidržte tlačítko na přední straně, dokud nezačne blikat.
 	DA	Vælg den Squeezebox Receiver der skal konfigureres. Hvis du ikke kan se den her, skal du holde knappen på forsiden nede indtil den blinker.
-	DE	Wählen Sie den gewünschten Squeezebox Receiver. Wird er nicht angezeigt, halten Sie die Taste an der Vorderseite gedrückt, bis sie blinkt.
+	DE	Wählen Sie den gewünschten Squeezebox-Receiver. Wird er nicht angezeigt, halten Sie die Taste an der Vorderseite gedrückt, bis sie blinkt.
 	EN	Choose the Squeezebox Receiver you want to set up. If you don't see it here, press and hold the button on the front until it flashes.
 	ES	Seleccione el receptor Squeezebox que desee configurar. Si no lo encuentra aquí, mantenga pulsado el botón en la parte frontal hasta que empiece a emitir destellos.
 	FI	Valitse Squeezebox-vastaanotin, jonka haluat ottaa käyttöön. Jos sitä ei näy tässä, pidä laitteen etuosassa olevaa painiketta pohjassa, kunnes sen valo vilkkuu.
@@ -202,7 +202,7 @@ SQUEEZEBOX_ETHERNET_PROBLEM_HELP
 SQUEEZEBOX_PROBLEM_HELP
 	CS	Připojení k %s nebylo možné. Ujistěte se, že je váš počítač zapnutý a připojený k místní síti, a že je Lyrion Music Server spuštěn.
 	DA	Der kunne ikke oprettes forbindelse til %s. Kontroller at computeren er tændt, at den er sluttet til det lokale netværk, og at Lyrion Music Server kører.
-	DE	Verbindung mit %s nicht möglich. Vergewissern Sie sich, dass Ihr Computer eingeschaltet ist und mit dem lokalen Netzwerk verbunden ist. Stellen Sie sicher, das Lyrion Music Server ausgeführt wird.
+	DE	Verbindung mit %s nicht möglich. Vergewissern Sie sich, dass Ihr Computer eingeschaltet ist und mit dem lokalen Netzwerk verbunden ist. Stellen Sie sicher, dass der Lyrion Music Server läuft.
 	EN	We couldn't connect to %s.  Make sure your computer is turned on and connected to your local network, and that Lyrion Music Server is currently running.
 	ES	No se ha podido establecer conexión con %s. Asegúrese de que el ordenador está encendido y conectado a la red local, y de que Lyrion Music Server se está ejecutando en este momento.
 	FI	Yhteyttä kohteeseen %s ei voitu muodostaa. Tarkista, että tietokone on päällä ja että se on yhdistetty paikallisverkkoon. Tarkista myös, että Lyrion Music Server on käynnissä.
