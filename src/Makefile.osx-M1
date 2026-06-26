@@ -258,8 +258,8 @@ sq:
 # freefont
 freefont:
 	mkdir -p ${PREFIX}/share/jive/fonts
-	cp freefont-20090104/FreeSans.ttf ${PREFIX}/share/jive/fonts
-	cp freefont-20090104/FreeSansBold.ttf ${PREFIX}/share/jive/fonts
+	cp dejavu-fonts-ttf-2.37/ttf/DejaVuSansCondensed.ttf ${PREFIX}/share/jive/fonts/FreeSans.ttf
+	cp dejavu-fonts-ttf-2.37/ttf/DejaVuSansCondensed-Bold.ttf ${PREFIX}/share/jive/fonts/FreeSansBold.ttf
 
 squeezeplay_dmg: squeezeplay/Makefile
 	cd squeezeplay; make SqueezePlay_dmg
