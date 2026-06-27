@@ -6,7 +6,7 @@
 
 #include "common.h"
 #include "jive.h"
-
+#include <fribidi/fribidi.h>
 
 /* actual FPS will only run at half of the JIVE_FRAME_RATE */
 #define SCROLL_FPS	(JIVE_FRAME_RATE / 2)
@@ -20,12 +20,18 @@
 #define MAX_CHARS 1000  // max number or characters before spliting text in a label
                         // this gets round SDLs limitation on max surface width
 
+#define is_rtl_codepoint(c) ( (c) >= 0x0590 && /* fast DQ */ \
+                             ((c) >= 0x0590 && (c) <= 0x05FF) || /* Hebrew */  \
+                             ((c) >= 0xFB1D && (c) <= 0xFB4F)    /* Hebrew Presentation */  \
+                            )
+
 typedef struct label_line {
 	JiveSurface *text_sh;
 	JiveSurface *text_fg;
 	Uint16 label_x, label_y; // line position
 	Uint16 lineHeight;       // line height
 	Uint16 textOffset;
+	bool is_rtl;
 } LabelLine;
 
 
@@ -182,12 +188,17 @@ static void prepare(lua_State *L) {
 		bool is_sh;
 		size_t len;
 		unsigned count;
+		bool found_rtl;
 
 		/* find line ending and split very long words*/
 		count = 0;
+		found_rtl = false;
 		c = utf8_get_char(ptr, &nptr);
 		while (c != '\0' && c != '\n' && c != '\r' && count < MAX_CHARS) {
 			ptr = nptr;
+			if (!found_rtl && is_rtl_codepoint(c)) {
+				found_rtl = true;
+			}
 			c = utf8_get_char(ptr, &nptr);
 			count++;
 		}
@@ -222,10 +233,27 @@ static void prepare(lua_State *L) {
 
 		line = &peer->line[num_lines++];
 
-		/* shadow and foreground text */
-		strncpy(tmp, str, len);
-		tmp[len] = '\0';
+		if (found_rtl) {
+			FriBidiChar logical[MAX_CHARS];
+			FriBidiChar visual[MAX_CHARS];
+			FriBidiParType base_direction = FRIBIDI_PAR_ON; /* let the library figure it out */
+			const int charset_utf8 = fribidi_parse_charset("UTF-8");
 
+			/* get logical representation */
+			const int length = fribidi_charset_to_unicode(charset_utf8, str, len, logical);
+			/* get visual representation */
+			(void) fribidi_log2vis(/*input*/  logical, length, &base_direction,
+								   /*output*/ visual, NULL, NULL, NULL);
+			/* reordered text */
+			fribidi_unicode_to_charset(charset_utf8, visual, length, tmp);
+			line->is_rtl = (FRIBIDI_PAR_RTL == base_direction);
+		} else {
+			strncpy(tmp, str, len);
+			tmp[len] = '\0';
+			line->is_rtl = false;
+		}
+
+		/* shadow and foreground text */
 		line->text_sh = is_sh ? jive_font_draw_text(font, sh, tmp) : NULL;
 		line->text_fg = jive_font_draw_text(font, fg, tmp);
 
@@ -413,43 +441,56 @@ int jiveL_label_draw(lua_State *L) {
 	}
 
 	for (i = 0; i < peer->num_lines; i++) {
-		Uint16 w, h, o, s;
-		Uint16 text_w;
+		Uint16 w, h, o, start_x;
 		LabelLine *line = &peer->line[i];
 
 		jive_surface_get_size(line->text_fg, &w, &h);
-
 	
-		/* second text when scrolling */
+		/* offset for split text when scrolling */
 		o = (peer->scroll_offset < 0) ? 0 : peer->scroll_offset;
 		if (w < peer->label_w) {
 			o = 0;
 		}
 
-		s = peer->text_w - o + SCROLL_PAD_RIGHT;
-		text_w = peer->label_w;
+		for (int j=1; j>=0; j--) {
+			JiveSurface *src;
 
-		/* shadow text */
-		if (line->text_sh) {
-			jive_surface_blit_clip(line->text_sh, o, 0, text_w, h,
-					       srf, peer->w.bounds.x + line->label_x + 1, peer->w.bounds.y + line->label_y + 1);
+			/* shadow is one pixel offset */
+			if (1==j) {
+				if (!line->text_sh) {
+					continue; /* no shadow */
+				}
+				src = line->text_sh;
+			} else {
+				src = line->text_fg;
+			}
 
-			if (o && s < text_w) {
-				Uint16 len = MAX(0, text_w - s);
-				jive_surface_blit_clip(line->text_sh, 0, 0, len, h,
-						       srf, peer->w.bounds.x + line->label_x + s + 1, peer->w.bounds.y + line->label_y + 1);
-			} 
+			if (line->is_rtl) {
+				/* scroll RTL text */
+				if (o < peer->label_w) {
+					jive_surface_blit_clip(src, 0, 0, peer->label_w - o, h,
+							srf, peer->w.bounds.x + line->label_x + o + j, peer->w.bounds.y + line->label_y + j);
+				}
+				if (o > SCROLL_PAD_RIGHT) {
+					/* sliding window */
+					start_x = w + SCROLL_PAD_RIGHT - o;
+					Uint16 len = MIN(w - start_x, peer->label_w);
+					jive_surface_blit_clip(src, start_x, 0, len, h,
+							srf, peer->w.bounds.x + line->label_x + j, peer->w.bounds.y + line->label_y + j);
+				}
+			} else {
+				/* scroll LTR text */
+				jive_surface_blit_clip(src, o, 0, peer->label_w, h,
+							srf, peer->w.bounds.x + line->label_x + j, peer->w.bounds.y + line->label_y + j);
+
+				start_x = peer->text_w - o + SCROLL_PAD_RIGHT;
+				if (o && start_x < peer->label_w) {
+					Uint16 len = MAX(0, peer->label_w - start_x);
+					jive_surface_blit_clip(src, 0, 0, len, h,
+							srf, peer->w.bounds.x + line->label_x + start_x + j, peer->w.bounds.y + line->label_y + j);
+				}
+			}
 		}
-
-		/* foreground text */
-		jive_surface_blit_clip(line->text_fg, o, 0, text_w, h,
-				       srf, peer->w.bounds.x + line->label_x, peer->w.bounds.y + line->label_y);
-
-		if (o && s < text_w) {
-			Uint16 len = MAX(0, text_w - s);
-			jive_surface_blit_clip(line->text_fg, 0, 0, len, h,
-					       srf, peer->w.bounds.x + line->label_x + s, peer->w.bounds.y + line->label_y);
-		} 
 	}
 
 	return 0;
