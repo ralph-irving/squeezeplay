@@ -221,7 +221,9 @@ libdecode_la_SOURCES = \
 libdecode_la_LIBADD = libaudio.la -lSDL -lFLAC -lmad -lvorbisidec
 
 libnet_la_SOURCES = \
-	src/net/jive_dns.c
+	src/net/jive_dns.c \
+	src/net/ifaces_posix.c \
+	src/net/lua_ifaces.c
 
 libnet_la_LIBADD = -lSDL -lresolv
 

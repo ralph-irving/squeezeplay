@@ -30,6 +30,7 @@ extern int luaopen_log(lua_State *L);
 extern int luaopen_jive(lua_State *L);
 extern int luaopen_jive_ui_framework(lua_State *L);
 extern int luaopen_jive_net_dns(lua_State *L);
+extern int luaopen_jive_net_ifaces(lua_State *L);
 extern int luaopen_jive_debug(lua_State *L);
 
 /* LUA_DEFAULT_SCRIPT
@@ -88,6 +89,9 @@ static void squeezeplay_openlibs(lua_State *L) {
 	lua_call(L, 0, 0);
 
 	lua_pushcfunction(L, luaopen_jive_net_dns);
+	lua_call(L, 0, 0);
+
+	lua_pushcfunction(L, luaopen_jive_net_ifaces);
 	lua_call(L, 0, 0);
 
 	lua_pushcfunction(L, luaopen_jive_debug);

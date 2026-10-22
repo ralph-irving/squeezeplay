@@ -79,7 +79,7 @@ am_libdecode_la_OBJECTS = mp4.lo mqueue.lo streambuf.lo alac.lo \
 	visualizer_vumeter.lo visualizer_spectrum.lo kiss_fft.lo
 libdecode_la_OBJECTS = $(am_libdecode_la_OBJECTS)
 libnet_la_DEPENDENCIES =
-am_libnet_la_OBJECTS = jive_dns.lo
+am_libnet_la_OBJECTS = jive_dns.lo ifaces_posix.lo lua_ifaces.lo
 libnet_la_OBJECTS = $(am_libnet_la_OBJECTS)
 libui_la_DEPENDENCIES =
 am_libui_la_OBJECTS = jive_event.lo jive_font.lo jive_framework.lo \
@@ -345,7 +345,9 @@ libdecode_la_SOURCES = \
 
 libdecode_la_LIBADD = libaudio.la -lSDL -lFLAC -lmad -lvorbisidec
 libnet_la_SOURCES = \
-	src/net/jive_dns.c
+	src/net/jive_dns.c \
+	src/net/ifaces_posix.c \
+	src/net/lua_ifaces.c
 
 libnet_la_LIBADD = -lSDL -lresolv
 
@@ -741,6 +743,20 @@ jive_dns.lo: src/net/jive_dns.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/net/jive_dns.c' object='jive_dns.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o jive_dns.lo `test -f 'src/net/jive_dns.c' || echo '$(srcdir)/'`src/net/jive_dns.c
+
+ifaces_posix.lo: src/net/ifaces_posix.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ifaces_posix.lo -MD -MP -MF "$(DEPDIR)/ifaces_posix.Tpo" -c -o ifaces_posix.lo `test -f 'src/net/ifaces_posix.c' || echo '$(srcdir)/'`src/net/ifaces_posix.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/ifaces_posix.Tpo" "$(DEPDIR)/ifaces_posix.Plo"; else rm -f "$(DEPDIR)/ifaces_posix.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/net/ifaces_posix.c' object='ifaces_posix.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ifaces_posix.lo `test -f 'src/net/ifaces_posix.c' || echo '$(srcdir)/'`src/net/ifaces_posix.c
+
+lua_ifaces.lo: src/net/lua_ifaces.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT lua_ifaces.lo -MD -MP -MF "$(DEPDIR)/lua_ifaces.Tpo" -c -o lua_ifaces.lo `test -f 'src/net/lua_ifaces.c' || echo '$(srcdir)/'`src/net/lua_ifaces.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lua_ifaces.Tpo" "$(DEPDIR)/lua_ifaces.Plo"; else rm -f "$(DEPDIR)/lua_ifaces.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/net/lua_ifaces.c' object='lua_ifaces.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o lua_ifaces.lo `test -f 'src/net/lua_ifaces.c' || echo '$(srcdir)/'`src/net/lua_ifaces.c
 
 jive_event.lo: src/ui/jive_event.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT jive_event.lo -MD -MP -MF "$(DEPDIR)/jive_event.Tpo" -c -o jive_event.lo `test -f 'src/ui/jive_event.c' || echo '$(srcdir)/'`src/ui/jive_event.c; \

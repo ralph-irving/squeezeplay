@@ -148,7 +148,7 @@ function _showMusicSourceList(self, offerListIfOnlyOneServerExists)
 	local poll = appletManager:callService("getPollList")
 	for address,_ in pairs(poll) do
 		log:debug("\t", address)
-		if address ~= "255.255.255.255" then
+		if not address:match("%.255$") then
 			self:_addServerItem(nil, address)
 		end
 	end
@@ -801,9 +801,6 @@ function _addRemoteServer(self, address)
 	local list = self:getSettings().poll
 	list[address] = address
 
-	--make sure broadcast is still in the list
-	list["255.255.255.255"] = "255.255.255.255",
-
 	appletManager:callService("setPollList", list)
 	self:getSettings().poll = list
 	self:storeSettings()
@@ -855,7 +852,7 @@ function _refreshRemoteServersWindow(self)
 		})
 
 	for i,address in pairs(self:getSettings().poll) do
-		if address ~= "255.255.255.255" then
+		if not address:match("%.255$") then
 			menu:addItem(
 				{
 					text = address,
